@@ -20,6 +20,7 @@
 | `working/interface/landing.md` | лендинг и страница тарифов; после доработки разложится на сценарии | при новом правиле или переработке |
 | `working/interface/patterns.md`, `working/text/patterns.md` | приёмы убеждения и тёмные паттерны; до доработки | при новом паттерне или источнике |
 | `working/text/english.md` | правила и маркеры только для английского текста, основа английской версии | при английском признаке в новом источнике |
+| `.claude-plugin/marketplace.json` | каталог плагинов Claude Code, плагин на скилл | при новом скилле |
 | `LICENSE` | текст CC BY 4.0 | не меняется |
 
 ## Как проект пользуется плейбуком
@@ -86,6 +87,9 @@ for f in skills/*/rules/*.md; do grep -q "](rules/${f##*/})" ${f%/rules/*}/SKILL
 
 # ни одна ссылка не выходит из своего скилла
 grep -rnE '\]\((\.\./)+nickture-' skills
+
+# каждый скилл есть в каталоге плагинов
+for d in skills/*/; do grep -q "\"./${d%/}\"" .claude-plugin/marketplace.json || echo "нет в marketplace.json: $d"; done
 
 # у правила текста есть врезка с примером: должны остаться ровно пять меточных правил
 awk 'FNR==1 { if (h != "" && !got) print h; h=""; got=0 }
