@@ -1,6 +1,6 @@
-# Nickture skills
+# Nickture Skills
 
-Two agent skills with checkable rules, one for interface design and one for Russian text. They work in Claude Code, Codex, Cursor and other agents that support Agent Skills. The rules are written in Russian. The interface rules apply to any interface, the text rules apply to Russian text only.
+Two agent skills with checkable rules, one for interface design and one for Russian text. They work in Claude Code, Codex, Cursor and other agents that support Agent Skills. The rules are written in Russian. The interface rules apply to any interface, the text rules apply to Russian text only and also cover the signs of AI-generated writing.
 
 Автор: [Nickture](https://nickture.com).
 
@@ -10,6 +10,8 @@ Two agent skills with checkable rules, one for interface design and one for Russ
 | --- | --- |
 | [`nickture-interface`](skills/nickture-interface/SKILL.md) | вёрстка, стили, компоненты и анимация любого интерфейса: веб-приложения, сайта, лендинга, мобильной версии, письма, презентации |
 | [`nickture-text-ru`](skills/nickture-text-ru/SKILL.md) | любой текст на русском: страница, документ, подпись кнопки, ошибка, письмо, ответ клиенту |
+
+По `nickture-text-ru` агент ещё и вычищает признаки сгенерированного текста. Это штампы, конструкции вроде «не X, а Y», канцелярит и предложения одной длины подряд, по которым читатель узнаёт машинный текст.
 
 Правила собраны из собственных разборов и мыслей автора, а также из открытых каталогов, книг и статей. Ключ в конце правила ведёт в таблицу источников `sources.md`. В `nickture-interface` звёздочкой ★ отмечены правила о самых заметных ошибках, и когда времени мало, их проверяют первыми. Правило можно нарушить, если для этого есть причина.
 
