@@ -1,0 +1,14 @@
+name: Новый источник
+description: Книга, статья или каталог, из которых стоит взять правила
+body:
+  - type: input
+    id: link
+    attributes:
+      label: Ссылка
+    validations:
+      required: true
+  - type: textarea
+    id: rules
+    attributes:
+      label: Что из него взять
+      description: Какие правила или мысли и для какого скилла

@@ -1,0 +1,31 @@
+name: Ошибка или спор в правиле
+description: Правило неверно, неточно или с ним можно поспорить
+body:
+  - type: dropdown
+    id: skill
+    attributes:
+      label: Скилл
+      options:
+        - nickture-interface
+        - nickture-text-ru
+    validations:
+      required: true
+  - type: input
+    id: rule
+    attributes:
+      label: Заголовок правила
+      description: Как он написан в файле, например «Дай нажать»
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Что не так
+      description: Пример экрана или текста, на котором правило ошибается
+    validations:
+      required: true
+  - type: textarea
+    id: fix
+    attributes:
+      label: Как должно быть
+      description: Новая формулировка или источник, если они есть
