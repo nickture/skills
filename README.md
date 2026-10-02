@@ -1,6 +1,6 @@
 # Nickture Skills
 
-Two Agent Skills with checkable rules: one for any interface, one for Russian text and the signs of AI-generated writing. An agent applies them when it edits an interface or text, and reviews finished work against the same rules. They work in Claude, Codex, Cursor and other compatible agents.
+Two Agent Skills that help an AI agent make an interface clear, consistent, easy to use and scalable, and Russian text clear and correct, without the signs of AI-generated work. Each skill is a set of checkable rules. The agent follows them when it edits an interface or text, and reviews finished work against them. They work in Claude, Codex, Cursor and other compatible agents.
 
 The skills themselves are in Russian for now. The agent reads them as they are and replies in your language, so `nickture-interface` works for an interface in any language. `nickture-text-ru` covers Russian text only, and an English version is planned.
 
