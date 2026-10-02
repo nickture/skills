@@ -89,8 +89,8 @@ for f in skills/*/rules/*.md; do grep -q "](rules/${f##*/})" ${f%/rules/*}/SKILL
 # ни одна ссылка не выходит из своего скилла
 grep -rnE '\]\((\.\./)+nickture-' skills
 
-# кавычки стоят вне ссылки
-grep -rnE '\[«|»\]\(' README.md skills working
+# ёлочки стоят вне ссылки, кроме плохих примеров
+grep -rnE '\[«|»\]\(' README.md skills working | grep -v '> Плохо:'
 
 # каждый скилл есть в каталоге плагинов
 for d in skills/*/; do grep -q "\"./${d%/}\"" .claude-plugin/marketplace.json || echo "нет в marketplace.json: $d"; done
