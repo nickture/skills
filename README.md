@@ -1,6 +1,6 @@
 # Nickture Skills
 
-Two agent skills with checkable rules, one for interface design and one for Russian text. They work in Claude Code, Codex, Cursor and other agents that support Agent Skills. The rules are written in Russian. The interface rules apply to any interface. The text rules apply to Russian text only for now, with an English version planned, and also cover the signs of AI-generated writing.
+Two Agent Skills with checkable rules in Russian: one for any interface, one for Russian text and the signs of AI-generated writing (English version planned). They work in Claude, Codex, Cursor and other compatible agents.
 
 Автор: [Nickture](https://nickture.com).
 
@@ -45,7 +45,7 @@ bunx skills add nickture/skills --skill nickture-interface -g
 
 ### Вручную
 
-Папка скилла кладётся туда, где агент ищет скиллы.
+Папка скилла копируется в каталог агента.
 
 | Агент | Для всех проектов | Для одного проекта |
 | --- | --- | --- |
@@ -86,7 +86,7 @@ ln -s ~/nickture-skills/skills/nickture-interface ~/.claude/skills/nickture-inte
 
 Уровень `max` действует до конца сессии, `high` сохраняется и для следующих. В Codex модель и уровень рассуждения выбираются командой `/model`.
 
-Правила общие для любого продукта. Решения конкретного проекта записываются в его Foundation: гарнитуры, цвета, шкалы отступов, длительности анимации и исключения из правил с причиной. Вопросы, на которые он отвечает, перечислены в разделе [«Что желательно определить»](skills/nickture-interface/rules/what-to-define.md). Foundation лежит в репозитории проекта обычным файлом. Чтобы агент его читал, сошлитесь на него в `CLAUDE.md` или `AGENTS.md` проекта.
+Правила общие для любого продукта. Решения конкретного проекта можно записать в его Foundation: гарнитуры, цвета, шкалы отступов, длительности анимации и исключения из правил с причиной. Вопросы, на которые он отвечает, перечислены в разделе [«Что желательно определить»](skills/nickture-interface/rules/what-to-define.md). Foundation лежит в репозитории проекта обычным файлом. Чтобы агент его читал, сошлитесь на него в `CLAUDE.md` или `AGENTS.md` проекта. Foundation необязателен, без него агент проверяет по общим правилам.
 
 ## Обновление
 
@@ -116,7 +116,7 @@ working/
 
 ## Участие
 
-Ошибку в правиле, спорное правило или новый источник присылайте в [issues](https://github.com/nickture/skills/issues). Новое правило сначала обсуждается там. Опечатки и мелкие правки можно сразу присылать через pull request. Формат правила и проверки перед коммитом описаны в [`CLAUDE.md`](CLAUDE.md).
+Ошибку в правиле, спорное правило или новый источник присылайте в [Issues](https://github.com/nickture/skills/issues). Новое правило сначала обсуждается там. Опечатки и мелкие правки можно сразу присылать через pull request. Формат правила и проверки перед коммитом описаны в [`CLAUDE.md`](CLAUDE.md).
 
 ## Лицензия
 
