@@ -4,7 +4,7 @@ Two Agent Skills with checkable rules: one for any interface, one for Russian te
 
 The skills themselves are in Russian for now. The agent reads them as they are and replies in your language, so `nickture-interface` works for an interface in any language. `nickture-text-ru` covers Russian text only, and an English version is planned.
 
-Written by [Nickture](https://nickture.com), a product and interface designer with almost thirty years of experience. He consults teams on product, interface and conversion, records video reviews of products, teaches managers to tell a good interface from a bad one, and builds products with his team from idea to launch.
+I’m [Nick](https://nickture.com), a product and interface designer with almost thirty years of experience. I consult teams on product, interface and conversion, record video reviews of products, teach managers to tell a good interface from a bad one, and build products with my team from idea to launch.
 
 | Skill | What it covers |
 | --- | --- |
@@ -13,7 +13,7 @@ Written by [Nickture](https://nickture.com), a product and interface designer wi
 
 With `nickture-text-ru` the agent edits text so it reads easily and is correct, and removes the signs of generated text. The [Slop](skills/nickture-text-ru/SKILL.md#slop) (Слоп) section lists several dozen of them, including clichés, “not X but Y” constructions, bureaucratic phrasing, intensifiers, hedge after hedge, needless lists and headings, bold in the middle of a paragraph, and runs of sentences of the same length.
 
-The rules come from the author’s own reviews and thinking, and from open catalogs, books and articles. The key at the end of a rule points to the source table in `sources.md`. In `nickture-interface` a star ★ marks the rules about the most visible mistakes. They are listed in the quick pass (Экспресс-проход) section, and when time is short they are checked first. A rule can be broken when there is a reason for it.
+The rules come from my own reviews and thinking, and from open catalogs, books and articles. The key at the end of a rule points to the source table in `sources.md`. In `nickture-interface` a star ★ marks the rules about the most visible mistakes. They are listed in the quick pass (Экспресс-проход) section, and when time is short they are checked first. A rule can be broken when there is a reason for it.
 
 ## Installation
 
@@ -124,4 +124,4 @@ How to report a mistake in a rule, dispute a rule, or suggest a new rule or sour
 
 ## License
 
-[CC BY 4.0](LICENSE). You can copy and change the rules, including in commercial projects. Credit the author, [Nickture](https://nickture.com), and link to this repository.
+[CC BY 4.0](LICENSE). You can copy and change the rules, including in commercial projects. Credit me as the author, [Nickture](https://nickture.com), and link to this repository.
