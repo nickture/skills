@@ -21,6 +21,7 @@
 | `working/interface/patterns.md`, `working/text/patterns.md` | приёмы убеждения и тёмные паттерны; до доработки | при новом паттерне или источнике |
 | `working/text/english.md` | правила и маркеры только для английского текста, основа английской версии | при английском признаке в новом источнике |
 | `README.md` | что это, установка, как запускать, обновление, участие, лицензия | при новом скилле и способе установки |
+| `CONTRIBUTING.md` | куда присылать ошибки, правила и источники, лицензия присланного | при новом способе участия |
 | `.claude-plugin/marketplace.json` | каталог плагинов Claude Code, плагин на скилл | при новом скилле |
 | `LICENSE` | текст CC BY 4.0 | не меняется |
 | `AGENTS.md` | симлинк на этот файл, чтобы правила правки читали Codex, Cursor и другие агенты | не меняется |
@@ -91,7 +92,7 @@ for f in skills/*/rules/*.md; do grep -q "](rules/${f##*/})" ${f%/rules/*}/SKILL
 grep -rnE '\]\((\.\./)+nickture-' skills
 
 # ёлочки стоят вне ссылки, кроме плохих примеров
-grep -rnE '\[«|»\]\(' README.md skills working | grep -v '> Плохо:'
+grep -rnE '\[«|»\]\(' README.md CONTRIBUTING.md skills working | grep -v '> Плохо:'
 
 # каждый скилл есть в каталоге плагинов
 for d in skills/*/; do grep -q "\"./${d%/}\"" .claude-plugin/marketplace.json || echo "нет в marketplace.json: $d"; done
@@ -111,7 +112,7 @@ awk 'FNR==1 { if (h != "" && !got) print h; h=""; got=0 }
 cite() { sed -E 's/`[^`]*`//g; s/\]\([^)]*\)//g; s/ГОСТ [0-9.]+-[0-9]+//g; s/«[^»]*»//g; s/„[^“]*“//g; s/^( *> Плохо:).*/\1/' "$1"; }
 ADJ='настоящ|следующ|предыдущ|будущ|текущ|общ|недостающ|подходящ|соответствующ'
 
-for f in README.md skills/*/*.md skills/*/rules/*.md working/interface/process.md working/*/patterns.md working/*/disagreements.md working/interface/rejected.md; do
+for f in README.md CONTRIBUTING.md skills/*/*.md skills/*/rules/*.md working/interface/process.md working/*/patterns.md working/*/disagreements.md working/interface/rejected.md; do
   # канцелярит: пустой глагол, отглагольное существительное, служебное слово
   cite "$f" | grep -noiE '(^|[^а-яё])(осуществл|производит(ся)?[ ,.]|имеет место|носит [а-яё]+ характер|данн(ый|ая|ое|ого|ому|ом)|указанн(ый|ая|ое)|в целях|в случае если|при наличии|не представляется возможным)' | sed "s|^|канцелярит $f:|"
   # цепочка родительных падежей: три существительных подряд
