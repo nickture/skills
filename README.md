@@ -4,7 +4,7 @@ Two Agent Skills with checkable rules: one for any interface, one for Russian te
 
 The skills themselves are in Russian for now. The agent reads them as they are and replies in your language, so `nickture-interface` works for an interface in any language. `nickture-text-ru` covers Russian text only, and an English version is planned.
 
-I’m [Nick](https://nickture.com), a product and interface designer with almost thirty years of experience. I consult teams on product, interface and conversion, record video reviews of products, teach managers to tell a good interface from a bad one, and build products with my team from idea to launch.
+I’m [Nick](https://nickture.com), a product and interface designer with almost thirty years of experience. I consult teams on product, interface and conversion, record video reviews of products, teach managers to tell a good interface from a bad one, and build products with my team from idea to launch. If you need any of this, [contact me](mailto:hey@nickture.com).
 
 | Skill | What it covers |
 | --- | --- |
