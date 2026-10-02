@@ -1,14 +1,14 @@
-name: Новый источник
-description: Книга, статья или каталог, из которых стоит взять правила
+name: New source
+description: A book, article or catalog worth taking rules from
 body:
   - type: input
     id: link
     attributes:
-      label: Ссылка
+      label: Link
     validations:
       required: true
   - type: textarea
     id: rules
     attributes:
-      label: Что из него взять
-      description: Какие правила или мысли и для какого скилла
+      label: What to take from it
+      description: Which rules or ideas, and for which skill

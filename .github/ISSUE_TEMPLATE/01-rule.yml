@@ -1,10 +1,10 @@
-name: Ошибка или спор в правиле
-description: Правило неверно, неточно или с ним можно поспорить
+name: Mistake or dispute in a rule
+description: A rule is wrong, imprecise or open to dispute
 body:
   - type: dropdown
     id: skill
     attributes:
-      label: Скилл
+      label: Skill
       options:
         - nickture-interface
         - nickture-text-ru
@@ -13,19 +13,19 @@ body:
   - type: input
     id: rule
     attributes:
-      label: Заголовок правила
-      description: Как он написан в файле, например «Дай нажать»
+      label: Rule heading
+      description: As written in the file, for example «Дай нажать»
     validations:
       required: true
   - type: textarea
     id: problem
     attributes:
-      label: Что не так
-      description: Пример экрана или текста, на котором правило ошибается
+      label: What's wrong
+      description: An example screen or text where the rule gets it wrong
     validations:
       required: true
   - type: textarea
     id: fix
     attributes:
-      label: Как должно быть
-      description: Новая формулировка или источник, если они есть
+      label: What it should be
+      description: New wording or a source, if you have them

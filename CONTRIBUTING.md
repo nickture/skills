@@ -1,7 +1,7 @@
-# Участие
+# Contributing
 
-Ошибку в правиле, спорное правило, новое правило или новый источник присылайте в [Issues](https://github.com/nickture/skills/issues/new/choose), для каждого случая там есть форма. Новое правило сначала обсуждается в Issue. Опечатки и мелкие правки можно сразу присылать через pull request.
+Send a mistake in a rule, a disputed rule, a new rule or a new source to [Issues](https://github.com/nickture/skills/issues/new/choose), where each case has its own form. A new rule is discussed in an issue first. Typos and small fixes can go straight to a pull request.
 
-Формат правила, правила правки и проверки перед коммитом описаны в [`CLAUDE.md`](CLAUDE.md). Claude Code читает этот файл сам, Codex и Cursor получают его под именем [`AGENTS.md`](AGENTS.md). Сообщение коммита пишется на английском, и в одном коммите одно изменение.
+The rule format, editing rules and pre-commit checks are described in [`CLAUDE.md`](CLAUDE.md), in Russian like the skills. Claude Code reads this file on its own, Codex and Cursor get it as [`AGENTS.md`](AGENTS.md). Commit messages are in English, one change per commit.
 
-Присланное публикуется под лицензией скиллов, [CC BY 4.0](LICENSE).
+Contributions are published under the skills’ license, [CC BY 4.0](LICENSE).

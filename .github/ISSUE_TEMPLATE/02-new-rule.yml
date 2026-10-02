@@ -1,10 +1,10 @@
-name: Новое правило
-description: Правило, которого в скиллах ещё нет
+name: New rule
+description: A rule the skills don't have yet
 body:
   - type: dropdown
     id: skill
     attributes:
-      label: Скилл
+      label: Skill
       options:
         - nickture-interface
         - nickture-text-ru
@@ -13,12 +13,12 @@ body:
   - type: textarea
     id: rule
     attributes:
-      label: Правило
-      description: Заголовок, утверждение, почему оно верно, пример
+      label: Rule
+      description: Heading, statement, why it holds, example
     validations:
       required: true
   - type: textarea
     id: source
     attributes:
-      label: Источник
-      description: Книга, статья или каталог, если мысль не ваша
+      label: Source
+      description: A book, article or catalog, if the idea isn't yours

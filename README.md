@@ -1,39 +1,39 @@
 # Nickture Skills
 
-Two Agent Skills with checkable rules: one for any interface, one for Russian text and the signs of AI-generated writing (English version planned). They work in Claude, Codex, Cursor and other compatible agents.
+Two Agent Skills with checkable rules: one for any interface, one for Russian text and the signs of AI-generated writing. An agent applies them when it edits an interface or text, and reviews finished work against the same rules. They work in Claude, Codex, Cursor and other compatible agents.
 
-Автор — [Nickture](https://nickture.com), дизайнер продуктов и интерфейсов с почти тридцатилетним опытом. Он консультирует команды по продукту, интерфейсу и конверсии, записывает видеоразборы продуктов, учит руководителей отличать хороший интерфейс от плохого и с командой делает продукты от идеи до запуска.
+The skills themselves are in Russian for now. The agent reads them as they are and replies in your language, so `nickture-interface` works for an interface in any language. `nickture-text-ru` covers Russian text only, and an English version is planned.
 
-Скиллы с проверяемыми правилами для ИИ-агентов. Агент применяет их, когда правит интерфейс или текст, и по ним же принимает готовую работу.
+Written by [Nickture](https://nickture.com), a product and interface designer with almost thirty years of experience. He consults teams on product, interface and conversion, records video reviews of products, teaches managers to tell a good interface from a bad one, and builds products with his team from idea to launch.
 
-| Скилл | Для чего |
+| Skill | What it covers |
 | --- | --- |
-| [`nickture-interface`](skills/nickture-interface/SKILL.md) | вёрстка, стили, компоненты и анимация любого интерфейса: веб-приложения, сайта, лендинга, мобильной версии, письма, презентации |
-| [`nickture-text-ru`](skills/nickture-text-ru/SKILL.md) | любой текст на русском: страница, документ, подпись кнопки, ошибка, письмо, ответ клиенту |
+| [`nickture-interface`](skills/nickture-interface/SKILL.md) | layout, styles, components and animation of any interface: web app, website, landing page, mobile layout, email, presentation |
+| [`nickture-text-ru`](skills/nickture-text-ru/SKILL.md) | any text in Russian: page, document, button label, error message, email, reply to a customer |
 
-По `nickture-text-ru` агент редактирует текст, чтобы он легко читался и был грамотным, и вычищает признаки сгенерированного текста. В разделе «[Слоп](skills/nickture-text-ru/SKILL.md#слоп)» их несколько десятков, в том числе штампы, конструкции вроде «не X, а Y», канцелярит, усилители, оговорки одна за другой, лишние списки и заголовки, жирный посреди абзаца и предложения одной длины подряд.
+With `nickture-text-ru` the agent edits text so it reads easily and is correct, and removes the signs of generated text. The [Slop](skills/nickture-text-ru/SKILL.md#slop) (Слоп) section lists several dozen of them, including clichés, “not X but Y” constructions, bureaucratic phrasing, intensifiers, hedge after hedge, needless lists and headings, bold in the middle of a paragraph, and runs of sentences of the same length.
 
-Правила собраны из собственных разборов и мыслей автора, а также из открытых каталогов, книг и статей. Ключ в конце правила ведёт в таблицу источников `sources.md`. В `nickture-interface` звёздочкой ★ отмечены правила о самых заметных ошибках, и когда времени мало, их проверяют первыми. Правило можно нарушить, если для этого есть причина.
+The rules come from the author’s own reviews and thinking, and from open catalogs, books and articles. The key at the end of a rule points to the source table in `sources.md`. In `nickture-interface` a star ★ marks the rules about the most visible mistakes. They are listed in the quick pass (Экспресс-проход) section, and when time is short they are checked first. A rule can be broken when there is a reason for it.
 
-## Установка
+## Installation
 
-### Утилитой skills
+### With the skills CLI
 
-Она ставит скиллы в Claude Code, Codex, Cursor и другие агенты и работает на Node.js или Bun. Документация на [skills.sh](https://skills.sh).
+It installs skills into Claude Code, Codex, Cursor and other agents, and runs on Node.js or Bun. Documentation is at [skills.sh](https://skills.sh).
 
 ```bash
 npx skills add nickture/skills    # Node.js
 bunx skills add nickture/skills   # Bun
 ```
 
-Команда спросит, какие скиллы и в какие агенты поставить. Один скилл ставится флагом `--skill`, а для всех проектов сразу добавляется `-g`.
+The command asks which skills to install and into which agents. The `--skill` flag installs one skill, and `-g` installs it for all projects.
 
 ```bash
 npx skills add nickture/skills --skill nickture-interface -g
 bunx skills add nickture/skills --skill nickture-interface -g
 ```
 
-### Плагином Claude Code
+### As a Claude Code plugin
 
 ```text
 /plugin marketplace add nickture/skills
@@ -41,18 +41,18 @@ bunx skills add nickture/skills --skill nickture-interface -g
 /plugin install nickture-text-ru@nickture
 ```
 
-Первая команда добавляет каталог плагинов, следующие ставят скиллы. Можно поставить один из двух.
+The first command adds the plugin marketplace, the other two install the skills. You can install just one of them.
 
-### Вручную
+### Manually
 
-Папка скилла копируется в каталог агента.
+Copy the skill folder into the agent’s skills directory.
 
-| Агент | Для всех проектов | Для одного проекта |
+| Agent | All projects | One project |
 | --- | --- | --- |
 | Claude Code | `~/.claude/skills/` | `.claude/skills/` |
 | Codex, Cursor | `~/.agents/skills/` | `.agents/skills/` |
 
-Если вместо копии поставить симлинк на клон репозитория, скилл будет обновляться через `git pull`.
+If you symlink a clone of the repository instead of copying, `git pull` updates the skill.
 
 ```bash
 git clone https://github.com/nickture/skills.git ~/nickture-skills
@@ -60,68 +60,68 @@ mkdir -p ~/.claude/skills
 ln -s ~/nickture-skills/skills/nickture-interface ~/.claude/skills/nickture-interface
 ```
 
-## Как запускать
+## Usage
 
-Скилл подключается сам, когда задача подходит под его описание. Вызвать его явно можно командой `/nickture-interface` в Claude Code и Cursor или `$nickture-interface` в Codex.
+A skill loads on its own when the task matches its description. To call it explicitly, type `/nickture-interface` in Claude Code and Cursor or `$nickture-interface` in Codex.
 
-Примеры запросов:
+Example requests:
 
-- «Проверь экран оформления заказа по nickture-interface»
-- «Перепиши тексты ошибок в форме регистрации по nickture-text-ru»
-- «Пройди страницу тарифов по экспресс-проходу nickture-interface»
+- “Check the checkout screen against nickture-interface”
+- “Rewrite the error messages in the sign-up form with nickture-text-ru”
+- “Run the nickture-interface quick pass on the pricing page”
 
-Проверку лучше запускать в режиме плана. В нём агент читает разделы по теме, выписывает нарушенные правила и предлагает правки. Файлы он меняет только после того, как вы одобрите план. Правку, с которой вы не согласны, можно убрать из плана до того, как она попадёт в код.
+Run a review in plan mode. In it the agent reads the sections on the topic, lists the rules that are broken and proposes fixes. It changes files only after you approve the plan, so you can drop a fix you disagree with before it reaches the code.
 
-| Агент | Как включить |
+| Agent | How to turn it on |
 | --- | --- |
-| Claude Code | `Shift+Tab` или `/plan` перед запросом |
+| Claude Code | `Shift+Tab` or `/plan` before the request |
 | Codex | `/plan` |
-| Cursor | `Shift+Tab` в поле чата |
+| Cursor | `Shift+Tab` in the chat input |
 
-Правил много, и на приёмке агент читает все разделы. На слабой модели или низком уровне рассуждения он читает выборочно и пропускает правила. Поэтому берите сильную модель из доступных. В Claude Code это Opus или Sonnet с уровнем `high` или `max`, а у некоторых из них по умолчанию стоит `medium`.
+There are many rules, and a full review reads every section. A weaker model or a low reasoning effort reads selectively and skips rules, so use the strongest model you have. In Claude Code that is Opus or Sonnet with effort set to `high` or `max`, and some of them default to `medium`.
 
 ```text
 /effort high
 ```
 
-Уровень `max` действует до конца сессии, `high` сохраняется и для следующих. В Codex модель и уровень рассуждения выбираются командой `/model`.
+`max` lasts until the end of the session, `high` carries over to the next ones. In Codex, choose the model and reasoning effort with `/model`.
 
-Оба скилла вместе занимают около 80 тысяч токенов. К ним добавляется код проекта, и в окне на 200 тысяч места может не хватить. Тогда Claude Code сжимает разговор, и от прочитанных правил остаётся краткий пересказ. С таким окном интерфейс и текст проверяются в разных сессиях. У Opus с версии 4.7 и Sonnet с версии 5 в Claude Code окно на 1M токенов. Оба скилла занимают в нём меньше десятой части.
+Together the two skills take about 80 thousand tokens. Add the project code, and a 200K context window may run out of room. Claude Code then compacts the conversation, and the rules it read shrink to a short summary. With that window, review the interface and the text in separate sessions. In Claude Code, Opus 4.7 and later and Sonnet 5 and later have a 1M-token window, and both skills take less than a tenth of it.
 
-После правок запустите проверку ещё раз в новой сессии (`/clear` в Claude Code), где агент заново прочитает правила. Так находятся нарушения, которые пропустил первый прогон, и те, что появились при правке.
+After the fixes, run the review again in a new session (`/clear` in Claude Code) so the agent reads the rules afresh. This finds what the first run missed and what the fixes broke.
 
-Правила общие для любого продукта. Решения конкретного проекта можно записать в его Foundation: гарнитуры, цвета, шкалы отступов, длительности анимации и исключения из правил с причиной. Вопросы, на которые он отвечает, перечислены в разделе «[Что желательно определить](skills/nickture-interface/rules/what-to-define.md)». Foundation лежит в репозитории проекта обычным файлом. Чтобы агент его читал, сошлитесь на него в `CLAUDE.md` или `AGENTS.md` проекта. Foundation необязателен, без него агент проверяет по общим правилам.
+The rules hold for any product. Decisions of a particular project go into its Foundation: typefaces, colors, spacing scales, animation durations, and exceptions to the rules with a reason. The questions it answers are listed in the [What to define](skills/nickture-interface/rules/what-to-define.md) (Что желательно определить) section. The Foundation is a plain file in the project repository. To make the agent read it, reference it in the project’s `CLAUDE.md` or `AGENTS.md`. The Foundation is optional, and without it the agent checks against the general rules.
 
-## Обновление
+## Updating
 
-Номеров версий нет, поэтому ставится всегда текущее состояние ветки `main`.
+There are no version numbers, so you always get the current state of the `main` branch.
 
-| Как поставлен скилл | Как обновить |
+| How the skill was installed | How to update |
 | --- | --- |
-| утилита skills | `npx skills update` или `bunx skills update` |
-| плагин Claude Code | `/plugin marketplace update nickture`, затем `/reload-plugins` |
-| симлинк на клон | `git pull` в папке клона |
-| копия папки | скопировать заново |
+| skills CLI | `npx skills update` or `bunx skills update` |
+| Claude Code plugin | `/plugin marketplace update nickture`, then `/reload-plugins` |
+| symlink to a clone | `git pull` in the clone folder |
+| copied folder | copy it again |
 
-Сам обновляется только плагин, и то если включить автообновление. У сторонних каталогов плагинов оно выключено по умолчанию. Включается оно в `/plugin` на вкладке Marketplaces пунктом Enable auto-update.
+Only the plugin updates itself, and only with auto-update turned on. It is off by default for third-party marketplaces. Turn it on in `/plugin` on the Marketplaces tab with Enable auto-update.
 
-## Что в репозитории
+## What’s in the repository
 
 ```text
 skills/
   nickture-interface/   SKILL.md, rules/, sources.md
   nickture-text-ru/     SKILL.md, rules/, sources.md
 working/
-  interface/            записи редакции и черновики по интерфейсу
-  text/                 записи редакции и черновики по тексту
+  interface/            editorial notes and drafts for the interface skill
+  text/                 editorial notes and drafts for the text skill
 ```
 
-В `working/` лежат спорные правила, черновики разделов, расхождения источников и то, что из них сознательно не взято, с причиной. Папка не входит в скиллы, и её правила агент не применяет. Она открыта, чтобы её можно было обсуждать.
+`working/` holds disputed rules, draft sections, the places where sources disagree, and what was left out of them on purpose, with the reason. The folder is not part of the skills, and the agent does not apply its rules. It is public so it can be discussed.
 
-## Участие
+## Contributing
 
-Как прислать ошибку в правиле, спорное или новое правило и новый источник, описано в [`CONTRIBUTING.md`](CONTRIBUTING.md).
+How to report a mistake in a rule, dispute a rule, or suggest a new rule or source is described in [`CONTRIBUTING.md`](CONTRIBUTING.md).
 
-## Лицензия
+## License
 
-[CC BY 4.0](LICENSE). Правила можно копировать и менять, в том числе в коммерческих проектах. При этом укажите автора, [Nickture](https://nickture.com), и дайте ссылку на этот репозиторий.
+[CC BY 4.0](LICENSE). You can copy and change the rules, including in commercial projects. Credit the author, [Nickture](https://nickture.com), and link to this repository.
