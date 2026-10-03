@@ -12,6 +12,20 @@ Before 1.0.0 a renamed or removed heading and a new rule both bump the minor dig
 
 A version opens with a short summary of what it brings, then lists its changes under Breaking, Added, Changed and Fixed. Inside each part the changes are grouped by skill and then by section, so each name is written once. Breaking names every renamed or removed heading with its replacement, so you know what to change in your Foundation. A rule is named in English by its meaning, with the Russian heading in parentheses to search for.
 
+## 0.3.3 — 2026-10-03
+
+A request to apply the skills to a finished project named no check, so under 0.3.2 an agent could still read only the sections it picked. No heading was renamed or removed.
+
+### Fixed
+
+#### Interface
+
+Intro: only an edit of a place the task names, such as a screen, a component or an animation, reads the sections on its topic. Any other work on a finished project counts as a check and reads every `rules/` file, including a request to see which rules apply.
+
+#### Text
+
+Intro: the same change, with a paragraph, a button or an email as the named place.
+
 ## 0.3.2 — 2026-10-03
 
 An agent asked for an audit read only the rule files on its topic and judged the rest by the starred headings in SKILL.md. No heading was renamed or removed, so references in a Foundation still work.
