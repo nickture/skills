@@ -12,6 +12,17 @@ Before 1.0.0 each kind of change bumps one digit lower, the usual convention for
 
 A version lists its changes under Breaking, Added, Changed and Fixed. Breaking names every renamed or removed heading with its replacement, so you know what to change in your Foundation. A rule is named in English by its meaning, with the Russian heading in parentheses to search for.
 
+## 0.2.5 — 2026-10-03
+
+### Added
+
+- Text, slop: chopped fragments (Рубленые фразы). Two or more fragments without a verb in a row, each ending in a full stop, are removed every time and merged into one sentence with a verb. Headings, button and field labels and table cells are exempt.
+
+### Changed
+
+- Text, slop: the cut-off fragment and punchline rule (Парцелляция и ударная концовка) now covers a single fragment cut off a sentence, which stays allowed once per 750 words. A series of fragments goes to the new rule.
+- Text, how to check: the mechanical pass also searches for two sentences of one to three words in a row (Сначала механически, потом глазами).
+
 ## 0.2.4 — 2026-10-03
 
 ### Added
