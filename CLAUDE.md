@@ -147,6 +147,9 @@ for f in README.md CONTRIBUTING.md skills/*/*.md skills/*/rules/*.md working/int
   sed -E '/^ *> Хорошо:/!s/«[^»]*»//g; s/`[^`]*`//g; s/^( *> Плохо:).*/\1/' "$f" | grep -noiE '(^|[^а-яё])без (лишн|ненужн|уловок|хлопот|головной боли|догад|рутин|суеты|усилий|сторонн)' | sed "s|^|без $f:|"
   # «поэтому» next to «это»: «поэтому» is built from «по этому», and the pair sounds like a repeat
   cite "$f" | grep -noiE '(^|[^а-яё])(поэтому эт|эт(о|а|и|от|у)( [а-яё]+){0,2},? поэтому)' | sed "s|^|поэтому $f:|"
+  # a plural verb with no subject after an object pronoun, «его меняют», hides who acts. As in the «без» check,
+  # «Хорошо» lines are kept. A subject placed after the verb («её задают паддинг») matches too, and such a sentence is reordered
+  sed -E '/^ *> Хорошо:/!s/«[^»]*»//g; s/`[^`]*`//g; s/^( *> Плохо:).*/\1/' "$f" | grep -noiE '(^|[^а-яё])(его|её|их) [а-яё]+(ют|ят)([^а-яё]|$)' | sed "s|^|no subject $f:|"
   # mechanical typography: three dots, straight quotes, a hyphen between digits, «стр.», «8-ми», «90-х гг.», a repeated №,
   # an arrow, «≈», a warning sign and a line of box-drawing characters in place of a word
   cite "$f" | grep -noE '(\.\.\.|"[^"]*"|[0-9]-[0-9]|[0-9]+-(ми|та|тил)|стр\. ?[0-9]|[0-9]{2,4}-х гг\.|№ ?[0-9]+, ?№|→|≈|⚠|─)' | sed "s|^|typography $f:|"
