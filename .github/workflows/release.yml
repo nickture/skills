@@ -21,3 +21,7 @@ jobs:
           awk -v h="## $v " 'index($0, h) == 1 {p=1; next} /^## /{p=0} p' CHANGELOG.md | sed -e '/./,$!d' > notes.md
           test -s notes.md || { echo "No section for $v in CHANGELOG.md"; exit 1; }
           gh release create "$TAG" --title "$v" --notes-file notes.md --verify-tag
+      # Anthropic's directory tracks the release branch, so it sees only releases.
+      # A plain push refuses to move the branch backwards to an older tag
+      - name: Move the release branch to the tag
+        run: git push origin HEAD:refs/heads/release

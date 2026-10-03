@@ -24,7 +24,7 @@ A personal body of expertise in interface design and writing: skills with univer
 | `CHANGELOG.md` | what changed in each version and what the number means | on a release |
 | `CONTRIBUTING.md` | where to send mistakes, rules and sources; the license of contributions | on a new way to contribute |
 | `.github/ISSUE_TEMPLATE/*.yml` | issue forms: a mistake or dispute in a rule, a new rule, a new source | on a new skill, which goes into the dropdown |
-| `.github/workflows/release.yml` | a GitHub release from the version's section in `CHANGELOG.md` when a `vX.Y.Z` tag reaches GitHub | when the format of version headings in `CHANGELOG.md` changes |
+| `.github/workflows/release.yml` | when a `vX.Y.Z` tag reaches GitHub, creates a GitHub release from the version's section in `CHANGELOG.md` and moves the `release` branch to the tag | when the format of version headings in `CHANGELOG.md` changes |
 | `.claude-plugin/plugin.json` | the `nickture-skills` plugin for Claude Code and Anthropic's plugin directory: description, keywords, version number. It finds the skills in `skills/` by itself | when the description changes and on a release |
 | `.claude-plugin/icon.png` | the plugin icon for Anthropic's directory, a square PNG of 512 to 2048 px made from the `nickture` organization avatar. The directory takes it only once, on the first save or submission | never: a new icon does not reach the listing |
 | `.claude-plugin/marketplace.json` | the `nickture` plugin marketplace: one plugin from the root and `renames` for the old names `nickture-interface` and `nickture-text-ru` | when the plugin is renamed; old `renames` entries are never removed |
@@ -168,7 +168,7 @@ Project Foundations reference rules by heading, so the version number follows Se
 | Wording, an example, a source, a typo | PATCH | PATCH |
 
 - **Only the skills and the plugin get releases.** A release is needed for changes in `skills/` and `.claude-plugin/`. The README, CONTRIBUTING, `working/`, this file and the issue forms change without a release, because the agent does not read them as rules.
-- **The plugin gets only releases.** Claude Code updates the plugin when `version` in `plugin.json` changes. The skills CLI and a clone take the current `main`.
+- **The plugin gets only releases.** Claude Code updates a plugin installed from the `nickture` marketplace when `version` in `plugin.json` changes. Anthropic's directory ignores `version` and tracks the `release` branch, which only the release workflow moves. The skills CLI and a clone take the current `main`.
 - **1.0.0 is the author's call.** It comes out once the structure settles.
 
 Release steps, when asked to release a version («выпусти версию»):
@@ -178,7 +178,7 @@ Release steps, when asked to release a version («выпусти версию»)
 3. A section for the version with its date goes at the top of `CHANGELOG.md`, in the order Breaking, Added, Changed, Fixed. Breaking lists every removed heading with its replacement. A rule is named in English by its meaning, with the Russian heading in parentheses. The text is checked against the `nickture-text-ru` rules and the markers in `working/text/english.md`.
 4. The number goes into `version` in `plugin.json`.
 5. A `Release X.Y.Z` commit of these two files, with an annotated tag `vX.Y.Z` on it.
-6. Only when asked separately, push the commit together with the tag: `git push --follow-tags`. `.github/workflows/release.yml` creates the GitHub release from the version's section in `CHANGELOG.md` when the tag reaches GitHub.
+6. Only when asked separately, push the commit together with the tag: `git push --follow-tags`. `.github/workflows/release.yml` creates the GitHub release from the version's section in `CHANGELOG.md` when the tag reaches GitHub, and moves the `release` branch to it.
 
 ## Git
 
