@@ -8,8 +8,8 @@ The skills themselves are in Russian for now. The agent reads them as they are a
 
 | Skill | What it covers |
 | --- | --- |
-| [`nickture-interface`](skills/nickture-interface/SKILL.md) | layout, styles, components and animation of any interface: web app, website, landing page, mobile layout, email, presentation |
-| [`nickture-text-ru`](skills/nickture-text-ru/SKILL.md) | any text in Russian: page, document, button label, error message, email, reply to a customer |
+| [`nickture-interface`](skills/nickture-interface/SKILL.md) | Layout, styles, components and animation of any interface: web app, website, landing page, mobile layout, email, presentation |
+| [`nickture-text-ru`](skills/nickture-text-ru/SKILL.md) | Any text in Russian: page, document, button label, error message, email, reply to a customer |
 
 With `nickture-interface` the agent also does its best to remove the signs of generated design, collected in its [Slop](skills/nickture-interface/rules/slop.md) (Слоп) section. Among them are three columns with an icon in a colored circle, a blue-to-purple gradient, everything centered, a card around every block, a badge that repeats the heading next to it, monospace type where it doesn’t belong, numbering like “01 / 02 / 03” or “0.1 / 0.2 / 0.3”, even nested several levels deep, and emoji in place of icons.
 
@@ -101,8 +101,8 @@ The Claude Code plugin gets only released versions. They are listed with their c
 | --- | --- |
 | skills CLI | `npx skills update` or `bunx skills update` |
 | Claude Code plugin | `/plugin marketplace update nickture`, then `/reload-plugins` |
-| symlink to a clone | `git pull` in the clone folder |
-| copied folder | copy it again |
+| Symlink to a clone | `git pull` in the clone folder |
+| Copied folder | Copy it again |
 
 Only the plugin updates itself, and only with auto-update turned on. It is off by default for third-party marketplaces. Turn it on in `/plugin` on the Marketplaces tab with Enable auto-update.
 
