@@ -12,6 +12,12 @@ Before 1.0.0 each kind of change bumps one digit lower, the usual convention for
 
 A version lists its changes under Breaking, Added, Changed and Fixed. Breaking names every renamed or removed heading with its replacement, so you know what to change in your Foundation. A rule is named in English by its meaning, with the Russian heading in parentheses to search for.
 
+## 0.2.2 — 2026-10-03
+
+### Added
+
+- The plugin has an icon for its listing in Anthropic's directory: the white «n» of the nickture avatar.
+
 ## 0.2.1 — 2026-10-03
 
 ### Added
