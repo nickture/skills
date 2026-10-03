@@ -12,6 +12,25 @@ Before 1.0.0 each kind of change bumps one digit lower, the usual convention for
 
 A version lists its changes under Breaking, Added, Changed and Fixed. Breaking names every renamed or removed heading with its replacement, so you know what to change in your Foundation. A rule is named in English by its meaning, with the Russian heading in parentheses to search for.
 
+## 0.2.6 — 2026-10-03
+
+### Added
+
+- Interface, states: an optimistic update only with a rollback (Оптимистичный отклик только с откатом). A like, a moved card or a switch changes on screen before the server answers only if a failure restores the previous state and shows the error by the object.
+- Interface: Uizze's design skills are a new source, key `uizze`.
+
+### Changed
+
+- Interface: an edit is compared on the rendered screen at a narrow and a wide width, after fonts and images load. When the screen cannot be rendered, the report says only the code was checked.
+- Interface, components: a scroll or `overflow: hidden` container does not clip a menu or popover either (Выпадающее меню и поповер остаются в экране).
+- Interface, mobile: a mobile layout draws no status bar, home indicator or device frame of its own (Без телефона в телефоне).
+- Interface, principles: an element has no job when the screen is no worse without it (У каждого элемента есть работа).
+- Text, slop: false agency (Ложная агентность) is checked by what the subject can do by its nature. A section describes, a reference shows, a service solves a task, and a verb that needs a mind, a will or waiting belongs to a person.
+
+### Fixed
+
+- Interface, what to define: in the section intro, the author of each component decides an unanswered point. It used to be the component itself.
+
 ## 0.2.5 — 2026-10-03
 
 ### Added
