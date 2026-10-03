@@ -121,6 +121,10 @@ working/
 
 `working/` holds disputed rules, draft sections, the places where sources disagree, and what was left out of them on purpose, with the reason. The folder is not part of the skills, and the agent does not apply its rules. It is public so it can be discussed.
 
+## Privacy
+
+The skills are text files with rules. They collect, store and send no data, and the plugin runs no code of its own. The agent reads your interface or text in the session you already have with it, and that agent’s own privacy policy applies.
+
 ## Contributing
 
 How to report a mistake in a rule, dispute a rule, or suggest a new rule or source is described in [`CONTRIBUTING.md`](CONTRIBUTING.md).
