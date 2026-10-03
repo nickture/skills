@@ -12,6 +12,16 @@ Before 1.0.0 a renamed or removed heading and a new rule both bump the minor dig
 
 A version opens with a short summary of what it brings, then lists its changes under Breaking, Added, Changed and Fixed. Inside each part the changes are grouped by skill and then by section, so each name is written once. Breaking names every renamed or removed heading with its replacement, so you know what to change in your Foundation. A rule is named in English by its meaning, with the Russian heading in parentheses to search for.
 
+## 0.4.0 — 2026-10-03
+
+The scope of one rule changed, so the minor digit goes up. No heading was renamed or removed.
+
+### Changed
+
+#### Interface
+
+Slop: key labels in `<kbd>` may use a monospaced font, as code, commands and strings checked character by character do (Моноширинный шрифт вне кода).
+
 ## 0.3.3 — 2026-10-03
 
 A request to apply the skills to a finished project named no check, so under 0.3.2 an agent could still read only the sections it picked. No heading was renamed or removed.
