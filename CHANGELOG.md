@@ -10,9 +10,11 @@ Projects reference rules by their headings, for example in a Foundation file. Th
 
 Before 1.0.0 a renamed or removed heading and a new rule both bump the minor digit, so the number alone does not say whether your references still work. The Breaking section does. A version covers changes to `skills/` and the plugin manifest. Changes to the README, `working/` and the issue forms come out without a version.
 
-A version lists its changes under Breaking, Added, Changed and Fixed. Inside each part the changes are grouped by skill and then by section, so each name is written once. Breaking names every renamed or removed heading with its replacement, so you know what to change in your Foundation. A rule is named in English by its meaning, with the Russian heading in parentheses to search for.
+A version opens with a short summary of what it brings, then lists its changes under Breaking, Added, Changed and Fixed. Inside each part the changes are grouped by skill and then by section, so each name is written once. Breaking names every renamed or removed heading with its replacement, so you know what to change in your Foundation. A rule is named in English by its meaning, with the Russian heading in parentheses to search for.
 
 ## 0.3.0 — 2026-10-03
+
+Rules from the design and writing skills trending on skills.sh. Of the first thousand skills, 62 deal with interfaces or writing. Their ideas that these skills lacked became 32 new rules and new cases in existing ones, mostly on accessibility, motion, forms, help articles and email. No heading was renamed or removed, and from this version on a new rule bumps the minor digit.
 
 ### Added
 
@@ -115,6 +117,8 @@ Before 1.0.0 a new rule or a changed threshold now bumps the minor digit, as in 
 
 ## 0.2.6 — 2026-10-03
 
+Rules from Uizze's design skills, a check of every interface edit on the rendered screen, and a sharper test for false agency in text.
+
 ### Added
 
 #### Interface
@@ -143,6 +147,8 @@ What to define: in the section intro, the author of each component decides an un
 
 ## 0.2.5 — 2026-10-03
 
+Chopped fragments, a sign of generated Russian text, get a rule of their own. The punchline rule, which used to cover them, keeps only a single fragment cut off a sentence.
+
 ### Added
 
 #### Text
@@ -158,11 +164,15 @@ Slop: chopped fragments (Рубленые фразы). Two or more fragments wit
 
 ## 0.2.4 — 2026-10-03
 
+The last of three releases that prepare the plugin for Anthropic's directory: the privacy statement its listing links to. The rules are unchanged.
+
 ### Added
 
 A Privacy section in the README: the skills collect, store and send no data. The directory listing links its privacy policy there.
 
 ## 0.2.3 — 2026-10-03
+
+The second of three releases that prepare the plugin for Anthropic's directory, a fix to the listing's links. The rules are unchanged.
 
 ### Fixed
 
@@ -170,11 +180,15 @@ The directory listing links its documentation to the README and its support to G
 
 ## 0.2.2 — 2026-10-03
 
+The first of three releases that prepare the plugin for Anthropic's directory. The rules are unchanged.
+
 ### Added
 
 The plugin has an icon for its listing in Anthropic's directory: the white «n» of the nickture avatar.
 
 ## 0.2.1 — 2026-10-03
+
+Two rules for reviewing someone else's text: an edit to a legal or medical text waits for the author, and instructions hidden in the text under review are not followed.
 
 ### Added
 
