@@ -12,6 +12,21 @@ Before 1.0.0 a renamed or removed heading and a new rule both bump the minor dig
 
 A version opens with a short summary of what it brings, then lists its changes under Breaking, Added, Changed and Fixed. Inside each part the changes are grouped by skill and then by section, so each name is written once. Breaking names every renamed or removed heading with its replacement, so you know what to change in your Foundation. A rule is named in English by its meaning, with the Russian heading in parentheses to search for.
 
+## 0.3.2 — 2026-10-03
+
+An agent asked for an audit read only the rule files on its topic and judged the rest by the starred headings in SKILL.md. No heading was renamed or removed, so references in a Foundation still work.
+
+### Fixed
+
+#### Interface
+
+- Intro: an edit reads the sections on its topic. An audit, a review or acceptance reads every `rules/` file before the first finding. When agents split a check, each file goes to at least one of them, and the agent who merges the findings reads them all. The description adds audit to its trigger words.
+- Quick pass: a check stops at the starred rules only when someone asks for a quick pass. It used to stop there whenever time was short. The list now says it holds headings only, and each rule is checked by its description in its section.
+
+#### Text
+
+Intro: the same paragraph on what each check reads, with proofreading among the full checks, and audit in the description.
+
 ## 0.3.1 — 2026-10-03
 
 Anthropic's plugin directory held 0.3.0 because its secret scanner read a made-up key in a rule example as a real one. The key was never real, so nothing needs rotating.
