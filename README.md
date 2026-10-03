@@ -95,7 +95,7 @@ The rules hold for any product. Decisions of a particular project go into its Fo
 
 ## Updating
 
-There are no version numbers, so you always get the current state of the `main` branch.
+The Claude Code plugin gets only released versions. They are listed with their changes in [`CHANGELOG.md`](CHANGELOG.md). The skills CLI and a clone get the current state of the `main` branch, including changes not yet released.
 
 | How the skill was installed | How to update |
 | --- | --- |
