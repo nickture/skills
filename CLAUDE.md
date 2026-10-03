@@ -1,122 +1,122 @@
 # Knowledge
 
-Личная база экспертизы по дизайну интерфейсов и тексту: скиллы с универсальными правилами, которые не привязаны ни к одному проекту. Ими пользуются в проектах (правила читаются на каждом изменении интерфейса и текста), на приёмке, в консультациях, воркшопах и в преподавании. Проект ставит скиллы и держит у себя только свои решения.
+A personal body of expertise in interface design and writing: skills with universal rules that are not tied to any project. They are used in projects (the rules are read on every change to an interface or text), in reviews of finished work, in consulting, workshops and teaching. A project installs the skills and keeps only its own decisions.
 
-## Где что лежит
+## Where things are
 
-В `skills/` лежит то, что агент применяет без оговорок. Недоделанное и записи редакции лежат в `working/`: папка не входит в скилл, и её правила не применяются. Она публикуется вместе с репозиторием, чтобы спорное и недоделанное можно было обсудить в Issues.
+`skills/` holds what the agent applies without reservation. Unfinished work and editorial records live in `working/`. That folder is not part of any skill, and its rules are not applied. It is published with the repository so that disputed and unfinished material can be discussed in Issues.
 
-| Файл | О чём | Когда меняется |
+| File | What it holds | When it changes |
 | --- | --- | --- |
-| `skills/nickture-interface/SKILL.md` | фронтматтер, вступление, как читать, разделы, экспресс-проход | при звезде правила, новом файле в `rules/` и правке вступления |
-| `skills/nickture-interface/rules/*.md` | правила интерфейса, файл на раздел: принципы, что желательно определить, типографика, цвет, пространство, иерархия, иконки, формы, состояния, навигация, онбординг, компоненты, мобильная версия, графики, документы, почта, доступность, прокрутка, движение, производительность, слоп | при новом правиле или источнике, при уточнении правил |
-| `skills/nickture-interface/sources.md`, `skills/nickture-text-ru/sources.md` | источники и их ключи, у каждого скилла своя таблица | при новом источнике |
-| `skills/nickture-text-ru/SKILL.md` | фронтматтер, вступление, разделы и вводный абзац слопа | при новом файле в `rules/` и правке вступления |
-| `skills/nickture-text-ru/rules/*.md` | правила письма, файл на раздел: заголовки, порядок, кто говорит, единообразие, утверждения, слова, числа, слоп (приёмы, шум, стоп-слова, текст целиком), типографика, формы, подписи в интерфейсе, сообщения, переписка, мета, как проверять | при новом правиле или уточнении существующих |
-| `working/interface/disputed.md`, `working/text/disputed.md` | спорные правила, вынесенные на доработку | при выносе правила на доработку и при его возврате |
-| `working/interface/disagreements.md`, `working/text/disagreements.md` | где источники расходятся и что выбрано | при споре источников |
-| `working/interface/rejected.md` | что из источников сознательно не взяли, с причиной | при отказе от совета источника |
-| `working/interface/process.md` | как проверять интерфейс, готовить и показывать работу; до переработки | при переработке |
-| `working/interface/landing.md` | лендинг и страница тарифов; после доработки разложится на сценарии | при новом правиле или переработке |
-| `working/interface/patterns.md`, `working/text/patterns.md` | приёмы убеждения и тёмные паттерны; до доработки | при новом паттерне или источнике |
-| `working/text/english.md` | правила и маркеры только для английского текста, основа английской версии | при английском признаке в новом источнике |
-| `README.md` | что это, установка, как запускать, обновление, участие, лицензия | при новом скилле и способе установки |
-| `CHANGELOG.md` | что изменилось в каждой версии и что значит номер, на английском | при выпуске версии |
-| `CONTRIBUTING.md` | куда присылать ошибки, правила и источники, лицензия присланного | при новом способе участия |
-| `.github/ISSUE_TEMPLATE/*.yml` | формы Issues: ошибка или спор в правиле, новое правило, новый источник | при новом скилле: он добавляется в выпадающий список |
-| `.github/workflows/release.yml` | релиз на GitHub из раздела версии в `CHANGELOG.md`, когда на GitHub приходит тег `vX.Y.Z` | при смене формата заголовка версии в `CHANGELOG.md` |
-| `.claude-plugin/plugin.json` | плагин `nickture-skills` для Claude Code и каталога Anthropic: описание на английском, ключевые слова, номер версии. Скиллы он берёт из `skills/` сам | при правке описания и выпуске версии |
-| `.claude-plugin/marketplace.json` | каталог плагинов `nickture`: один плагин из корня и `renames` старых имён `nickture-interface` и `nickture-text-ru` | при переименовании плагина; старые строки `renames` не удаляются |
-| `LICENSE` | текст CC BY 4.0 | не меняется |
-| `AGENTS.md` | симлинк на этот файл, чтобы правила правки читали Codex, Cursor и другие агенты | не меняется |
+| `skills/nickture-interface/SKILL.md` | frontmatter, intro, how to read, sections, quick pass | when a rule gets or loses a star, a file is added to `rules/`, or the intro is edited |
+| `skills/nickture-interface/rules/*.md` | interface rules, one file per section: principles, what to define, typography, color, space, hierarchy, icons, forms, states, navigation, onboarding, components, mobile, charts, documents, email, accessibility, scrolling, motion, performance, slop | on a new rule or source, when rules are refined |
+| `skills/nickture-interface/sources.md`, `skills/nickture-text-ru/sources.md` | sources and their keys, a separate table for each skill | on a new source |
+| `skills/nickture-text-ru/SKILL.md` | frontmatter, intro, sections and the intro paragraph of the slop section | when a file is added to `rules/` or the intro is edited |
+| `skills/nickture-text-ru/rules/*.md` | writing rules, one file per section: headings, order, who speaks, consistency, claims, words, numbers, slop (rhetoric, noise, stop words, the text as a whole), typography, forms, interface labels, messages, correspondence, meta, how to check | on a new rule or when existing ones are refined |
+| `working/interface/disputed.md`, `working/text/disputed.md` | disputed rules taken out for rework | when a rule is taken out for rework and when it comes back |
+| `working/interface/disagreements.md`, `working/text/disagreements.md` | where sources disagree and what was chosen | when sources disagree |
+| `working/interface/rejected.md` | what was deliberately left out of the sources, with the reason | when a source's advice is rejected |
+| `working/interface/process.md` | how to review an interface, prepare and present work; waiting for a rewrite | on the rewrite |
+| `working/interface/landing.md` | landing and pricing pages; once finished, it splits into scenarios | on a new rule or a rewrite |
+| `working/interface/patterns.md`, `working/text/patterns.md` | persuasion techniques and dark patterns; unfinished | on a new pattern or source |
+| `working/text/english.md` | rules and markers for English text only, the base for an English version | when a new source has a sign that holds for English only |
+| `README.md` | what this is, installation, usage, updating, contributing, license | on a new skill or install method |
+| `CHANGELOG.md` | what changed in each version and what the number means | on a release |
+| `CONTRIBUTING.md` | where to send mistakes, rules and sources; the license of contributions | on a new way to contribute |
+| `.github/ISSUE_TEMPLATE/*.yml` | issue forms: a mistake or dispute in a rule, a new rule, a new source | on a new skill, which goes into the dropdown |
+| `.github/workflows/release.yml` | a GitHub release from the version's section in `CHANGELOG.md` when a `vX.Y.Z` tag reaches GitHub | when the format of version headings in `CHANGELOG.md` changes |
+| `.claude-plugin/plugin.json` | the `nickture-skills` plugin for Claude Code and Anthropic's plugin directory: description, keywords, version number. It finds the skills in `skills/` by itself | when the description changes and on a release |
+| `.claude-plugin/marketplace.json` | the `nickture` plugin marketplace: one plugin from the root and `renames` for the old names `nickture-interface` and `nickture-text-ru` | when the plugin is renamed; old `renames` entries are never removed |
+| `LICENSE` | the CC BY 4.0 text | never |
+| `AGENTS.md` | a symlink to this file, so Codex, Cursor and other agents read the editing rules | never |
 
-## Как проект пользуется скиллами
+## How a project uses the skills
 
-- **Правила универсальные, Foundation проектный.** В проекте может лежать свой Foundation: ответы на раздел «Что желательно определить» (гарнитуры, цвета, шкалы, `z-index`, длительности) и исключения с причинами. Общие правила там не повторяются, на них ссылаются по заголовку.
-- **Правило можно нарушить с причиной.** Причина записывается в Foundation проекта рядом с исключением.
+- **Universal rules, project Foundation.** A project can keep its own Foundation: answers to the What to define (Что желательно определить) section, such as typefaces, colors, scales, `z-index` and durations, plus exceptions with reasons. The Foundation does not repeat the general rules and refers to them by heading.
+- **A rule can be broken for a reason.** The reason is written in the project's Foundation next to the exception.
 
-## Правила правки
+## Editing rules
 
-- **Ни проекта, ни клиента, ни продукта.** В скиллах не называются проекты, клиенты, продукты и люди из разборов. Примеры обобщаются: «карточка товара», «экран выбора тарифа». Называются только авторы источников в таблице ключей и в тексте правила, где мысль принадлежит им.
-- **Формат правила.** `` - **Заголовок.** ★ Утверждение. Почему. Пример или число. `[ключ]` ``. Заголовок коротко называет правило, описание после него объясняет, что проверять и почему. Tailwind utility class в скобках необязателен и ставится в правиле про код как подсказка реализации. В `nickture-text-ru` пример стоит под строкой правила врезкой `>` из двух абзацев: «Плохо:» и «Хорошо:». Заголовок уникален в своём скилле и не меняется без нужды: на него ссылаются проекты.
-- **Фильтр перед записью.** Правило проверяемо, верно для любого продукта своего типа, у него есть причина, и оно не дублирует уже записанное. Дубль сливается с существующим правилом, ключи источников складываются.
-- **★ — экспресс-проход, около сорока правил.** Звезда ставится правилу, которое ловит самую заметную ошибку на экране. Новая звезда — повод снять другую. Заголовки правил со звездой повторяются списком в разделе «Экспресс-проход» в `skills/nickture-interface/SKILL.md`. Звезда ставится и снимается сразу в обоих местах.
-- **Источник указан ключом.** Новый источник сначала получает строку в `sources.md` своего скилла, источник обоих скиллов стоит в обеих таблицах. Ключ из записи в `working/interface/` или `working/text/` тоже стоит в таблице своего скилла. Собственные разборы и мысли автора идут под ключом `nick`.
-- **Спор источников решается явно.** Если источники советуют разное, правило записывается по выбранному варианту, а сам спор — строкой в `working/interface/disagreements.md` или `working/text/disagreements.md`. Спор без выбора записывается с пустой колонкой «Выбрано», и правило по нему не пишется. Не взятое целиком — в `working/interface/rejected.md` с причиной.
-- **Текст к тексту, интерфейс к интерфейсу.** Подписи, ошибки, числа и тон — в `skills/nickture-text-ru/rules/`. Вёрстка, состояния и компоненты — в `skills/nickture-interface/rules/`. Скиллы ссылаются друг на друга и не повторяют друг друга.
-- **Правило лежит в файле своего раздела.** Новое правило записывается в файл раздела в `rules/`, новый раздел заводит новый файл и строку в разделе «Разделы» своего `SKILL.md`. Правило из другого файла называется заголовком в кавычках, ссылкой на этот файл оформлен заголовок без кавычек: `по правилу «[Дай нажать](principles.md)»`. Правило другого скилла называется заголовком и именем скилла без ссылки, `` по правилу «Регистр как в предложении» скилла `nickture-text-ru` ``: скиллы ставят по одному, и путь в соседний скилл может никуда не вести.
-- **Недоделанное лежит в `working/`.** Спорное правило переезжает в `working/interface/disputed.md` или `working/text/disputed.md` с пометкой, что с ним не так. Доработанное правило или документ возвращается в скилл. Скилл на `working/` не ссылается.
-- **Скиллы пишутся по правилам `nickture-text-ru`.** Русский язык, термины как есть (`hover`, `focus-visible`, `ease-out`), стоп-слова в переносном смысле не используются, «не X, а Y» не чаще раза на 750 слов, в предложении одно тире или двоеточие.
-- **Страницы GitHub на английском.** `README.md`, `CONTRIBUTING.md`, `CHANGELOG.md` и формы Issues пишутся на английском, их читают и те, кто не знает русского. Скиллы, `working/` и этот файл остаются на русском, и README прямо говорит, что скиллы пока на русском. Последняя фраза `description` в `SKILL.md` тоже на английском, потому что каталоги скиллов и поиск сопоставляют слова запроса.
+- **No projects, clients or products.** The skills never name projects, clients, products or people from reviews. Examples are generalized: «карточка товара» (a product card), «экран выбора тарифа» (a plan selection screen). Only the authors of sources are named, in the key table and in the text of a rule where the idea is theirs.
+- **Rule format.** `` - **Heading.** ★ Statement. Why. Example or number. `[key]` ``. The heading names the rule in a few words, and the description after it says what to check and why. A Tailwind utility class in parentheses is optional and goes into a rule about code as an implementation hint. In `nickture-text-ru` the example sits under the rule line as a `>` blockquote of two paragraphs, «Плохо:» and «Хорошо:». A heading is unique within its skill and is changed only when needed, because projects reference it.
+- **Filter before writing.** A rule is checkable, holds for any product of its type, has a reason, and does not duplicate a rule already written. A duplicate is merged into the existing rule, and their source keys are combined.
+- **★ marks the quick pass, about forty rules.** A star goes to a rule that catches the most visible mistake on a screen. A new star is a reason to remove another one. The headings of starred rules are repeated as a list in the quick pass (Экспресс-проход) section of `skills/nickture-interface/SKILL.md`. A star is added or removed in both places at once.
+- **A source is cited by key.** A new source first gets a row in the `sources.md` of its skill, and a source of both skills is in both tables. A key used in `working/interface/` or `working/text/` is also in the table of its skill. The author's own reviews and ideas use the key `nick`.
+- **Disagreements between sources are settled explicitly.** When sources give different advice, the rule follows the chosen option, and the disagreement goes as a row into `working/interface/disagreements.md` or `working/text/disagreements.md`. A disagreement without a choice gets an empty «Выбрано» (chosen) column, and no rule is written from it. Advice left out entirely goes into `working/interface/rejected.md` with the reason.
+- **Text rules with text, interface rules with interface.** Labels, errors, numbers and tone go into `skills/nickture-text-ru/rules/`. Layout, states and components go into `skills/nickture-interface/rules/`. The skills refer to each other and do not repeat each other.
+- **A rule lives in the file of its section.** A new rule goes into the section file in `rules/`. A new section gets a new file and a row in the sections (Разделы) table of its `SKILL.md`. A rule from another file is named by its heading in guillemets, and the heading inside them links to that file: `по правилу «[Дай нажать](principles.md)»`. A rule of the other skill is named by its heading and the skill name, without a link: `` по правилу «Регистр как в предложении» скилла `nickture-text-ru` ``. Skills are installed one by one, and a path into the other skill may lead nowhere.
+- **Unfinished work lives in `working/`.** A disputed rule moves to `working/interface/disputed.md` or `working/text/disputed.md` with a note on what is wrong with it. A finished rule or document goes back into the skill. A skill never links to `working/`.
+- **The skills follow the `nickture-text-ru` rules.** They are in Russian, with terms as they are (`hover`, `focus-visible`, `ease-out`), no stop words in a figurative sense, «не X, а Y» at most once per 750 words, and one dash or colon per sentence.
+- **This file and the GitHub pages are in English.** `CLAUDE.md`, `README.md`, `CONTRIBUTING.md`, `CHANGELOG.md` and the issue forms are in English, because people who don't know Russian read them too. The skills and `working/` stay in Russian, and the README says plainly that the skills are in Russian for now. The last sentence of `description` in each `SKILL.md` is also in English, because skill directories and search match the words of a query.
 
-## Проверки
+## Checks
 
-Все команды из корня репозитория. Пустой вывод — хорошо.
+Run every command from the repository root. Empty output is good.
 
 ```bash
 I=skills/nickture-interface; T=skills/nickture-text-ru
 
-# экспресс-проход совпадает со звёздами правил
+# the quick pass matches the starred rules
 diff <(grep -ohE '^- \*\*[^*]+\*\* ★' $I/rules/*.md | sed -E 's/^- \*\*(.+)\*\* ★$/\1/' | LC_ALL=C sort) \
      <(awk '/^## Экспресс-проход/{p=1; next} /^## /{p=0} p && /^- /' $I/SKILL.md | sed 's/^- //' | LC_ALL=C sort)
 
-# заголовки правил уникальны в своём скилле
+# rule headings are unique within their skill
 grep -ohE '^- \*\*[^*]+\*\*' $I/rules/*.md | LC_ALL=C sort | LC_ALL=C uniq -d
 grep -ohE '^- \*\*[^*]+\*\*' $T/rules/*.md | LC_ALL=C sort | LC_ALL=C uniq -d
 
-# у каждого правила интерфейса есть ключ источника
+# every interface rule has a source key
 grep -hE '^- \*\*' $I/rules/*.md | grep -vE '`\[[a-z-]+(, [a-z-]+)*\]`$'
 
-# «не X, а Y»: не больше одного на 750 слов
-echo "лимит $(( $(cat $I/rules/*.md | wc -w) / 750 )), найдено $(cat $I/rules/*.md | grep -oE '(^|[ «(])не [^,.:;!?]{1,60}, а |, а не ' | wc -l)"
+# «не X, а Y»: at most one per 750 words
+echo "limit $(( $(cat $I/rules/*.md | wc -w) / 750 )), found $(cat $I/rules/*.md | grep -oE '(^|[ «(])не [^,.:;!?]{1,60}, а |, а не ' | wc -l)"
 
-# три тире или двоеточия в одном предложении
+# three dashes or colons in one sentence
 grep -nE '( — |: )[^.!?…]*( — |: )[^.!?…]*( — |: )' $I/rules/*.md
 
-# стоп-слова в переносном смысле (каждое вхождение проверяется глазами)
+# stop words in a figurative sense (check every match by eye)
 grep -noiE '(держит|держится|живёт|несёт|спорит| уходит|упирается|поверх[ .,:;]|тих[аиоуеыя]|раньше|жд[её]т|ждут|спеш)' $I/rules/*.md
 
-# каждый использованный ключ есть в источниках своего скилла, записи из working/ тоже
+# every key in use is in its skill's sources, keys in working/ too
 for a in interface text; do s=$I; [ $a = text ] && s=$T
   comm -23 <(grep -ohE '`\[[a-z-]+(, [a-z-]+)*\]`' $s/SKILL.md $s/rules/*.md working/$a/*.md \
               | tr -d '`[]' | tr ',' '\n' | tr -d ' ' | LC_ALL=C sort -u) \
            <(grep -oE '^\| `[a-z-]+`' $s/sources.md | tr -d '| `' | LC_ALL=C sort -u) | sed "s|^|$a: |"
 done
 
-# фронтматтер: первая строка ---, name совпадает с папкой, description до 1024 знаков
+# frontmatter: first line ---, name matches the folder, description up to 1024 characters
 for f in skills/*/SKILL.md; do n=${f#skills/}; n=${n%/SKILL.md}
-  [ "$(head -1 $f)" = "---" ] || echo "$n: нет фронтматтера"
-  grep -qx "name: $n" $f || echo "$n: name не совпадает с папкой"
-  l=$(sed -n 's/^description: //p' $f | head -1 | tr -d '\n' | wc -m); [ $l -gt 0 ] && [ $l -le 1024 ] || echo "$n: description $l знаков"
+  [ "$(head -1 $f)" = "---" ] || echo "$n: no frontmatter"
+  grep -qx "name: $n" $f || echo "$n: name does not match the folder"
+  l=$(sed -n 's/^description: //p' $f | head -1 | tr -d '\n' | wc -m); [ $l -gt 0 ] && [ $l -le 1024 ] || echo "$n: description has $l characters"
 done
 
-# каждый файл rules/ есть в разделах своего SKILL.md
-for f in skills/*/rules/*.md; do grep -q "](rules/${f##*/})" ${f%/rules/*}/SKILL.md || echo "нет в разделах: $f"; done
+# every rules/ file is in the sections of its SKILL.md
+for f in skills/*/rules/*.md; do grep -q "](rules/${f##*/})" ${f%/rules/*}/SKILL.md || echo "not in sections: $f"; done
 
-# ни одна ссылка не выходит из своего скилла
+# no link leaves its skill
 grep -rnE '\]\((\.\./)+nickture-' skills
 
-# ёлочки стоят вне ссылки, кроме плохих примеров
+# guillemets stay outside a link, except in bad examples
 grep -rnE '\[«|»\]\(' README.md CONTRIBUTING.md skills working | grep -v '> Плохо:'
 
-# каждый скилл есть в выпадающих списках форм Issues
+# every skill is in the dropdowns of the issue forms
 for d in skills/*/; do n=$(basename $d)
-  for f in .github/ISSUE_TEMPLATE/0[12]-*.yml; do grep -qx "        - $n" $f || echo "нет в $f: $n"; done
+  for f in .github/ISSUE_TEMPLATE/0[12]-*.yml; do grep -qx "        - $n" $f || echo "missing in $f: $n"; done
 done
 
-# версия из plugin.json есть в CHANGELOG.md
+# the version in plugin.json is in CHANGELOG.md
 v=$(sed -n 's/^  "version": "\(.*\)",$/\1/p' .claude-plugin/plugin.json)
-grep -q "^## $v " CHANGELOG.md || echo "нет версии $v в CHANGELOG.md"
+grep -q "^## $v " CHANGELOG.md || echo "no version $v in CHANGELOG.md"
 
-# что пропало с последней версии: заголовки правил и файлы разделов.
-# Непустой вывод значит, что следующий выпуск ломающий и каждое имя есть в Breaking
+# what is gone since the last version: rule headings and section files.
+# Any output means the next release is breaking, and each name goes into Breaking
 t=$(git describe --tags --abbrev=0 2>/dev/null) && {
   LC_ALL=C comm -23 <(git grep -hE '^- \*\*[^*]+\*\*' "$t" -- 'skills/*/rules/*.md' | sed -E 's/^- \*\*([^*]+)\*\*.*/\1/' | LC_ALL=C sort -u) \
                     <(grep -hE '^- \*\*[^*]+\*\*' skills/*/rules/*.md | sed -E 's/^- \*\*([^*]+)\*\*.*/\1/' | LC_ALL=C sort -u)
   git diff --name-status --diff-filter=DR "$t" -- 'skills/*/rules/*.md' 'skills/*/SKILL.md'
 }
 
-# у правила текста есть врезка с примером: должны остаться ровно пять меточных правил
+# every text rule has an example blockquote: exactly five rules on how to check should remain
 awk 'FNR==1 { if (h != "" && !got) print h; h=""; got=0 }
      /^- \*\*/ { if (h != "" && !got) print h; h=$0; got=0; next }
      /^  > Хорошо:/ { got=1 }
@@ -125,60 +125,59 @@ awk 'FNR==1 { if (h != "" && !got) print h; h=""; got=0 }
 ```
 
 ```bash
-# служебное для проверок ниже: вырезать цитаты — код, ссылки, номера стандартов,
-# строки «Плохо» и всё в кавычках. Плохой пример в правилах иллюстрирует нарушение,
-# а не совершает его. Номера строк сохраняются: sed затирает содержимое, не строки
+# helper for the checks below: strip quoted material, which is code, links, standard numbers,
+# «Плохо» lines and everything in guillemets. A bad example in a rule shows a violation on
+# purpose, so it does not count. Line numbers are kept because sed blanks content and keeps lines
 cite() { sed -E 's/`[^`]*`//g; s/\]\([^)]*\)//g; s/ГОСТ [0-9.]+-[0-9]+//g; s/«[^»]*»//g; s/„[^“]*“//g; s/^( *> Плохо:).*/\1/' "$1"; }
 ADJ='настоящ|следующ|предыдущ|будущ|текущ|общ|недостающ|подходящ|соответствующ'
 
 for f in README.md CONTRIBUTING.md skills/*/*.md skills/*/rules/*.md working/interface/process.md working/*/patterns.md working/*/disagreements.md working/interface/rejected.md; do
-  # канцелярит: пустой глагол, отглагольное существительное, служебное слово
-  cite "$f" | grep -noiE '(^|[^а-яё])(осуществл|производит(ся)?[ ,.]|имеет место|носит [а-яё]+ характер|данн(ый|ая|ое|ого|ому|ом)|указанн(ый|ая|ое)|в целях|в случае если|при наличии|не представляется возможным)' | sed "s|^|канцелярит $f:|"
-  # цепочка родительных падежей: три существительных подряд
-  cite "$f" | grep -noiE '[а-яё]+(ения|ания|ации) +[а-яё]+(ения|ания|ации|ов|ий) +[а-яё]+(ения|ания|ации|ов|ий)' | sed "s|^|родительные $f:|"
-  # два причастия в одном предложении, кроме похожих на них прилагательных
-  cite "$f" | grep -noE '[а-яё]+(ущ|ющ|ащ|ящ|вш|ем|им)(ий|ая|ее|ие|его|ей|их)[^.!?…]*[а-яё]+(ущ|ющ|ащ|ящ|вш|ем|им)(ий|ая|ее|ие|его|ей|их)' | grep -viE "$ADJ" | sed "s|^|причастия $f:|"
-  # усилители: «ровно то» и «реально» наречием. «Ровно» перед числом и «реальный»
-  # против выдуманного законны, поэтому в выражение они не попадают. «Именно» и «как раз»
-  # названы в правиле, но не ищутся: у них бывает различающая работа
-  cite "$f" | grep -noiE '(^|[^а-яё])(ровно (то|тот|та|те|так|это|этот)([^а-яё]|$)|реально([^а-яё]|$))' | sed "s|^|усилитель $f:|"
-  # «без» с оценкой, ощущением или чужим инструментом. Хороший пример учит так же, как правило,
-  # поэтому строки «Хорошо» не вырезаются. «Без ручного X» и «без скрытых комиссий» бывают законны и не ищутся
+  # officialese: empty verb, verbal noun, bureaucratic function word
+  cite "$f" | grep -noiE '(^|[^а-яё])(осуществл|производит(ся)?[ ,.]|имеет место|носит [а-яё]+ характер|данн(ый|ая|ое|ого|ому|ом)|указанн(ый|ая|ое)|в целях|в случае если|при наличии|не представляется возможным)' | sed "s|^|officialese $f:|"
+  # chain of genitives: three nouns in a row
+  cite "$f" | grep -noiE '[а-яё]+(ения|ания|ации) +[а-яё]+(ения|ания|ации|ов|ий) +[а-яё]+(ения|ания|ации|ов|ий)' | sed "s|^|genitives $f:|"
+  # two participles in one sentence, except adjectives that look like participles
+  cite "$f" | grep -noE '[а-яё]+(ущ|ющ|ащ|ящ|вш|ем|им)(ий|ая|ее|ие|его|ей|их)[^.!?…]*[а-яё]+(ущ|ющ|ащ|ящ|вш|ем|им)(ий|ая|ее|ие|его|ей|их)' | grep -viE "$ADJ" | sed "s|^|participles $f:|"
+  # intensifiers: «ровно то» and «реально» as an adverb. «Ровно» before a number and «реальный»
+  # as the opposite of made-up are legitimate, so the pattern leaves them out. «Именно» and «как раз»
+  # are named in the rule and not searched for, because they sometimes tell things apart
+  cite "$f" | grep -noiE '(^|[^а-яё])(ровно (то|тот|та|те|так|это|этот)([^а-яё]|$)|реально([^а-яё]|$))' | sed "s|^|intensifier $f:|"
+  # «без» with a judgement, a feeling or someone else's tool. A good example teaches like the rule does,
+  # so «Хорошо» lines are not stripped. «Без ручного X» and «без скрытых комиссий» can be legitimate and are not searched for
   sed -E '/^ *> Хорошо:/!s/«[^»]*»//g; s/`[^`]*`//g; s/^( *> Плохо:).*/\1/' "$f" | grep -noiE '(^|[^а-яё])без (лишн|ненужн|уловок|хлопот|головной боли|догад|рутин|суеты|усилий|сторонн)' | sed "s|^|без $f:|"
-  # «поэтому» рядом с «это»: «поэтому» составлено из «по этому», и пара звучит как повтор
+  # «поэтому» next to «это»: «поэтому» is built from «по этому», and the pair sounds like a repeat
   cite "$f" | grep -noiE '(^|[^а-яё])(поэтому эт|эт(о|а|и|от|у)( [а-яё]+){0,2},? поэтому)' | sed "s|^|поэтому $f:|"
-  # механическая типографика: три точки, прямые кавычки, дефис между цифрами, «стр.», «8-ми», «90-х гг.», повтор №,
-  # стрелка, «≈», знак предупреждения и линия из символов рамки вместо слова
-  cite "$f" | grep -noE '(\.\.\.|"[^"]*"|[0-9]-[0-9]|[0-9]+-(ми|та|тил)|стр\. ?[0-9]|[0-9]{2,4}-х гг\.|№ ?[0-9]+, ?№|→|≈|⚠|─)' | sed "s|^|типографика $f:|"
+  # mechanical typography: three dots, straight quotes, a hyphen between digits, «стр.», «8-ми», «90-х гг.», a repeated №,
+  # an arrow, «≈», a warning sign and a line of box-drawing characters in place of a word
+  cite "$f" | grep -noE '(\.\.\.|"[^"]*"|[0-9]-[0-9]|[0-9]+-(ми|та|тил)|стр\. ?[0-9]|[0-9]{2,4}-х гг\.|№ ?[0-9]+, ?№|→|≈|⚠|─)' | sed "s|^|typography $f:|"
 done
 ```
 
-## Версии
+## Versions
 
-На заголовок правила ссылаются Foundation проектов, поэтому номер версии по SemVer показывает, нужно ли проекту править ссылки.
+Project Foundations reference rules by heading, so the version number follows SemVer and shows whether a project has to fix its references.
 
-| Изменение | С 1.0.0 | До 1.0.0 |
+| Change | From 1.0.0 | Before 1.0.0 |
 | --- | --- | --- |
-| Заголовок правила, файл раздела или скилл переименован или удалён | MAJOR | MINOR |
-| Новое правило или раздел; правило проверяет другое: порог, число, область | MINOR | PATCH |
-| Формулировка, пример, источник, опечатка | PATCH | PATCH |
+| A rule heading, a section file or a skill is renamed or removed | MAJOR | MINOR |
+| A new rule or section; a rule now checks something else: a threshold, a number, a scope | MINOR | PATCH |
+| Wording, an example, a source, a typo | PATCH | PATCH |
 
-- **Выпуск только для скиллов и плагина.** Он нужен при изменениях в `skills/` и `.claude-plugin/`. README, CONTRIBUTING, `working/`, этот файл и формы Issues выходят без выпуска, потому что агент не читает их как правила.
-- **Плагин получает только выпуски.** Claude Code обновляет плагин, когда меняется `version` в `plugin.json`. skills CLI и клон берут текущий `main`.
-- **1.0.0 по решению автора.** Версия выходит, когда структура устоится.
+- **Only the skills and the plugin get releases.** A release is needed for changes in `skills/` and `.claude-plugin/`. The README, CONTRIBUTING, `working/`, this file and the issue forms change without a release, because the agent does not read them as rules.
+- **The plugin gets only releases.** Claude Code updates the plugin when `version` in `plugin.json` changes. The skills CLI and a clone take the current `main`.
+- **1.0.0 is the author's call.** It comes out once the structure settles.
 
-Шаги выпуска по просьбе «выпусти версию»:
+Release steps, when asked to release a version («выпусти версию»):
 
-1. `git log v<последняя>..HEAD -- skills .claude-plugin` и проверка «что пропало с последней версии» показывают, что вошло и есть ли ломающее.
-2. Номер выбирается по таблице.
-3. Сверху `CHANGELOG.md` пишется раздел версии с датой, по порядку Breaking, Added, Changed, Fixed. В Breaking каждый пропавший заголовок стоит с заменой. Правило называется по-английски по смыслу, русский заголовок в скобках. Текст проверяется по правилам `nickture-text-ru` и маркерам `working/text/english.md`.
-4. Номер записывается в `version` в `plugin.json`.
-5. Коммит `Release X.Y.Z` из этих двух файлов, на нём аннотированный тег `vX.Y.Z`.
-6. Только по отдельной просьбе push коммита вместе с тегом: `git push --follow-tags`. Релиз на GitHub с текстом раздела из `CHANGELOG.md` создаёт `.github/workflows/release.yml`, когда тег приходит на GitHub.
+1. `git log v<last>..HEAD -- skills .claude-plugin` and the check for what is gone since the last version show what went in and whether anything breaks.
+2. The number follows the table.
+3. A section for the version with its date goes at the top of `CHANGELOG.md`, in the order Breaking, Added, Changed, Fixed. Breaking lists every removed heading with its replacement. A rule is named in English by its meaning, with the Russian heading in parentheses. The text is checked against the `nickture-text-ru` rules and the markers in `working/text/english.md`.
+4. The number goes into `version` in `plugin.json`.
+5. A `Release X.Y.Z` commit of these two files, with an annotated tag `vX.Y.Z` on it.
+6. Only when asked separately, push the commit together with the tag: `git push --follow-tags`. `.github/workflows/release.yml` creates the GitHub release from the version's section in `CHANGELOG.md` when the tag reaches GitHub.
 
 ## Git
 
-- Коммит, push и тег версии только по просьбе.
-- Сообщение коммита на английском, заголовок и тело. Один коммит — одно изменение: новое правило отдельно от переформулировки, дизайн отдельно от текста.
-- Ветка `main`, историю не переписываем.
-
+- Commit, push and version tags only when asked.
+- Commit messages are in English, with a subject and a body. One commit is one change: a new rule separate from a rewording, design separate from text.
+- Branch `main`; history is never rewritten.
