@@ -25,6 +25,18 @@ jobs:
           test -s notes.md || { echo "No section for $v in CHANGELOG.md"; exit 1; }
           gh release create "$TAG" --title "$v" --notes-file notes.md --verify-tag
       # Anthropic's directory tracks the release branch, so it sees only releases.
-      # A plain push refuses to move the branch backwards to an older tag
-      - name: Move the release branch to the tag
-        run: git push origin HEAD:refs/heads/release
+      # The branch gets the tag's files without CLAUDE.md, AGENTS.md and .github/:
+      # they serve the repository, and the directory's checks read them as the plugin.
+      # Each release commit sits on the previous one, and an older tag is refused
+      - name: Put the tag's files on the release branch
+        env:
+          TAG: ${{ github.ref_name }}
+          GIT_INDEX_FILE: ${{ runner.temp }}/release-index
+        run: |
+          v=${TAG#v}
+          old=$(git show origin/release:.claude-plugin/plugin.json | sed -n 's/^  "version": "\(.*\)",$/\1/p')
+          test "$(printf '%s\n' "$old" "$v" | sort -V | tail -1)" = "$v" || { echo "release has $old, newer than $v"; exit 1; }
+          git ls-tree -r HEAD | awk -F'\t' '$2 !~ /^(CLAUDE\.md$|AGENTS\.md$|\.github\/)/' | git update-index --add --index-info
+          c=$(git -c user.name='github-actions[bot]' -c user.email='41898283+github-actions[bot]@users.noreply.github.com' \
+                commit-tree "$(git write-tree)" -p origin/release -m "Release $v")
+          git push origin "$c:refs/heads/release"
