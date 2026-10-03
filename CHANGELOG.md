@@ -12,6 +12,16 @@ Before 1.0.0 a renamed or removed heading and a new rule both bump the minor dig
 
 A version opens with a short summary of what it brings, then lists its changes under Breaking, Added, Changed and Fixed. Inside each part the changes are grouped by skill and then by section, so each name is written once. Breaking names every renamed or removed heading with its replacement, so you know what to change in your Foundation. A rule is named in English by its meaning, with the Russian heading in parentheses to search for.
 
+## 0.3.1 — 2026-10-03
+
+Anthropic's plugin directory held 0.3.0 because its secret scanner read a made-up key in a rule example as a real one. The key was never real, so nothing needs rotating.
+
+### Fixed
+
+#### Text
+
+Typography: the bad example of the copyable code rule (Пример кода копируется как есть) describes a real-looking key in words. It used to show a string in the format of a Stripe key.
+
 ## 0.3.0 — 2026-10-03
 
 Rules from the design and writing skills trending on skills.sh. Of the first thousand skills, 62 deal with interfaces or writing. Their ideas that these skills lacked became 32 new rules and new cases in existing ones, mostly on accessibility, motion, forms, help articles and email. No heading was renamed or removed, and from this version on a new rule bumps the minor digit.
