@@ -1,7 +1,7 @@
 {
   "name": "nickture-skills",
   "displayName": "Nickture Skills",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Checkable rules for interface design and for Russian text. The agent applies them when it edits UI or copy and reviews finished work against them, including the signs of AI-generated design and writing. The rules are in Russian, and the interface skill works for an interface in any language.",
   "author": {
     "name": "Nickture",
@@ -9,6 +9,8 @@
   },
   "homepage": "https://github.com/nickture/skills",
   "repository": "https://github.com/nickture/skills",
+  "documentationUrl": "https://github.com/nickture/skills#readme",
+  "supportUrl": "https://github.com/nickture/skills/issues",
   "license": "CC-BY-4.0",
   "keywords": ["design-review", "ui-design", "ux-writing", "typography", "accessibility", "ai-slop", "humanizer", "russian"]
 }
