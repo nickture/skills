@@ -26,6 +26,7 @@ A personal body of expertise in interface design and writing: skills with univer
 | `.github/ISSUE_TEMPLATE/*.yml` | issue forms: a mistake or dispute in a rule, a new rule, a new source | on a new skill, which goes into the dropdown |
 | `.github/workflows/release.yml` | a GitHub release from the version's section in `CHANGELOG.md` when a `vX.Y.Z` tag reaches GitHub | when the format of version headings in `CHANGELOG.md` changes |
 | `.claude-plugin/plugin.json` | the `nickture-skills` plugin for Claude Code and Anthropic's plugin directory: description, keywords, version number. It finds the skills in `skills/` by itself | when the description changes and on a release |
+| `.claude-plugin/icon.png` | the plugin icon for Anthropic's directory, a square PNG of 512 to 2048 px made from the `nickture` organization avatar. The directory takes it only once, on the first save or submission | never: a new icon does not reach the listing |
 | `.claude-plugin/marketplace.json` | the `nickture` plugin marketplace: one plugin from the root and `renames` for the old names `nickture-interface` and `nickture-text-ru` | when the plugin is renamed; old `renames` entries are never removed |
 | `LICENSE` | the CC BY 4.0 text | never |
 | `AGENTS.md` | a symlink to this file, so Codex, Cursor and other agents read the editing rules | never |
