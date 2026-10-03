@@ -32,6 +32,7 @@
 | Цепочка отрицаний | No X. No Y. No Z.; no X, no Y, no Z |
 | Зеркальная пара с выдуманной половиной | I'm not saying, To be clear, Don't get me wrong, This is not to say, A tempting approach would be, You might think… but |
 | Парцелляция и ударная концовка | That is the real win. Read that again. Let that sink in. every. single. day. |
+| Рубленые фразы | Present tense. Subject, verb, object. No metaphors.; Fast. Simple. Reliable. |
 | Прочистка горла | Let's dive in, let's break this down, here's what you need to know, without further ado, Here's the thing, The thing is, In today's fast-paced world, In the ever-evolving landscape of, When it comes to, The best part:, The detail that makes it work:, The solution is simple:; heads up, quick note, now let's look at, Buckle up, Here's what that means in practice, Spoiler:, Plot twist:, And here's the kicker:, In plain English: |
 | Текст рассказывает о своём устройстве | As we explore, As we delve into |
 | Пересказ вместо вывода в конце раздела | Overall, In conclusion, In summary; To sum up, All in all, Ultimately, Bottom line:, In short:, заголовки Final thoughts, Wrapping up, Key takeaways |

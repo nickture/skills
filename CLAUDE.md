@@ -151,6 +151,9 @@ for f in README.md CONTRIBUTING.md skills/*/*.md skills/*/rules/*.md working/int
   # a plural verb with no subject after an object pronoun, «его меняют», hides who acts. As in the «без» check,
   # «Хорошо» lines are kept. A subject placed after the verb («её задают паддинг») matches too, and such a sentence is reordered
   sed -E '/^ *> Хорошо:/!s/«[^»]*»//g; s/`[^`]*`//g; s/^( *> Плохо:).*/\1/' "$f" | grep -noiE '(^|[^а-яё])(его|её|их) [а-яё]+(ют|ят)([^а-яё]|$)' | sed "s|^|no subject $f:|"
+  # chopped phrases: two sentences of one to three words in a row. As in the «без» check, «Хорошо» lines are kept.
+  # A single tail cut off a short sentence matches too, and it is allowed once per 750 words
+  sed -E '/^ *> Хорошо:/!s/«[^»]*»//g; s/`[^`]*`//g; s/^( *> Плохо:).*/\1/' "$f" | grep -noE '(^|[.!?] |«|\*\* )[А-ЯЁA-Z][а-яёa-z-]*(,? [а-яёa-z-]+){0,2}[.!?] [А-ЯЁA-Z][а-яёa-z-]*(,? [а-яёa-z-]+){0,2}[.!?]' | sed "s|^|chopped $f:|"
   # mechanical typography: three dots, straight quotes, a hyphen between digits, «стр.», «8-ми», «90-х гг.», a repeated №,
   # an arrow, «≈», a warning sign and a line of box-drawing characters in place of a word
   cite "$f" | grep -noE '(\.\.\.|"[^"]*"|[0-9]-[0-9]|[0-9]+-(ми|та|тил)|стр\. ?[0-9]|[0-9]{2,4}-х гг\.|№ ?[0-9]+, ?№|→|≈|⚠|─)' | sed "s|^|typography $f:|"
