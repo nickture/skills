@@ -74,7 +74,7 @@ echo "limit $(( $(cat $I/rules/*.md | wc -w) / 750 )), found $(cat $I/rules/*.md
 grep -nE '( — |: )[^.!?…]*( — |: )[^.!?…]*( — |: )' $I/rules/*.md
 
 # stop words in a figurative sense (check every match by eye)
-grep -noiE '(держит|держится|живёт|несёт|спорит| уходит|упирается|поверх[ .,:;]|тих[аиоуеыя]|раньше|жд[её]т|ждут|спеш)' $I/rules/*.md
+grep -noiE '(держит|держится|живёт|несёт|спорит| уходит|упирается|поверх[ .,:;]|тих[аиоуеыя]|раньше|жд[её]т|ждут|спеш|сто(ит|ят)[ .,:;])' $I/rules/*.md
 
 # every key in use is in its skill's sources, keys in working/ too
 for a in interface text; do s=$I; [ $a = text ] && s=$T
