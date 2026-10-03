@@ -4,22 +4,16 @@
     "name": "Nickture"
   },
   "metadata": {
-    "description": "Interface design and Russian text playbooks as agent skills, by Nickture."
+    "description": "Interface design and Russian text rules as agent skills, by Nickture."
   },
   "plugins": [
     {
-      "name": "nickture-interface",
-      "description": "Checkable interface design rules: typography, color, spacing, forms, states, navigation, motion, accessibility. Written in Russian.",
-      "source": "./",
-      "strict": false,
-      "skills": ["./skills/nickture-interface"]
-    },
-    {
-      "name": "nickture-text-ru",
-      "description": "Checkable rules for Russian text: headings, word choice, numbers, typography, UI copy, messages, AI slop markers.",
-      "source": "./",
-      "strict": false,
-      "skills": ["./skills/nickture-text-ru"]
+      "name": "nickture-skills",
+      "source": "./"
     }
-  ]
+  ],
+  "renames": {
+    "nickture-interface": "nickture-skills",
+    "nickture-text-ru": "nickture-skills"
+  }
 }

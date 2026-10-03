@@ -23,7 +23,8 @@
 | `README.md` | что это, установка, как запускать, обновление, участие, лицензия | при новом скилле и способе установки |
 | `CONTRIBUTING.md` | куда присылать ошибки, правила и источники, лицензия присланного | при новом способе участия |
 | `.github/ISSUE_TEMPLATE/*.yml` | формы Issues: ошибка или спор в правиле, новое правило, новый источник | при новом скилле: он добавляется в выпадающий список |
-| `.claude-plugin/marketplace.json` | каталог плагинов Claude Code, плагин на скилл | при новом скилле |
+| `.claude-plugin/plugin.json` | плагин `nickture-skills` для Claude Code и каталога Anthropic: описание на английском, ключевые слова. Скиллы он берёт из `skills/` сам | при правке описания |
+| `.claude-plugin/marketplace.json` | каталог плагинов `nickture`: один плагин из корня и `renames` старых имён `nickture-interface` и `nickture-text-ru` | при переименовании плагина; старые строки `renames` не удаляются |
 | `LICENSE` | текст CC BY 4.0 | не меняется |
 | `AGENTS.md` | симлинк на этот файл, чтобы правила правки читали Codex, Cursor и другие агенты | не меняется |
 
@@ -95,9 +96,6 @@ grep -rnE '\]\((\.\./)+nickture-' skills
 
 # ёлочки стоят вне ссылки, кроме плохих примеров
 grep -rnE '\[«|»\]\(' README.md CONTRIBUTING.md skills working | grep -v '> Плохо:'
-
-# каждый скилл есть в каталоге плагинов
-for d in skills/*/; do grep -q "\"./${d%/}\"" .claude-plugin/marketplace.json || echo "нет в marketplace.json: $d"; done
 
 # каждый скилл есть в выпадающих списках форм Issues
 for d in skills/*/; do n=$(basename $d)

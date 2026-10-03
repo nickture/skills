@@ -39,11 +39,10 @@ bunx skills add nickture/skills --skill nickture-interface -g
 
 ```text
 /plugin marketplace add nickture/skills
-/plugin install nickture-interface@nickture
-/plugin install nickture-text-ru@nickture
+/plugin install nickture-skills@nickture
 ```
 
-The first command adds the plugin marketplace, the other two install the skills. You can install just one of them.
+The first command adds the plugin marketplace, the second installs the plugin with both skills. To install just one skill, use the skills CLI with `--skill`.
 
 ### Manually
 
@@ -106,6 +105,8 @@ There are no version numbers, so you always get the current state of the `main` 
 | copied folder | copy it again |
 
 Only the plugin updates itself, and only with auto-update turned on. It is off by default for third-party marketplaces. Turn it on in `/plugin` on the Marketplaces tab with Enable auto-update.
+
+Each skill used to be a separate plugin, `nickture-interface` and `nickture-text-ru`. Now both are in one plugin, `nickture-skills`. If you installed the old plugins, update the marketplace and run `/plugin install nickture-skills@nickture` once. The old plugins are then replaced with the new one.
 
 ## What’s in the repository
 
