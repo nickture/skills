@@ -12,6 +12,12 @@ Before 1.0.0 each kind of change bumps one digit lower, the usual convention for
 
 A version lists its changes under Breaking, Added, Changed and Fixed. Breaking names every renamed or removed heading with its replacement, so you know what to change in your Foundation. A rule is named in English by its meaning, with the Russian heading in parentheses to search for.
 
+## 0.2.4 — 2026-10-03
+
+### Added
+
+- A Privacy section in the README: the skills collect, store and send no data. The directory listing links its privacy policy there.
+
 ## 0.2.3 — 2026-10-03
 
 ### Fixed
