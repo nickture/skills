@@ -162,12 +162,12 @@ done
 
 ## Versions
 
-Project Foundations reference rules by heading, so the version number follows SemVer and shows whether a project has to fix its references.
+The version number follows SemVer by meaning, not by how many rules changed. Project Foundations reference rules by heading, so every renamed or removed heading is listed under Breaking in `CHANGELOG.md`, and that section is what tells a project to fix its references.
 
 | Change | From 1.0.0 | Before 1.0.0 |
 | --- | --- | --- |
 | A rule heading, a section file or a skill is renamed or removed | MAJOR | MINOR |
-| A new rule or section; a rule now checks something else: a threshold, a number, a scope | MINOR | PATCH |
+| A new rule or section; a rule now checks something else: a threshold, a number, a scope | MINOR | MINOR |
 | Wording, an example, a source, a typo | PATCH | PATCH |
 
 - **Only the skills and the plugin get releases.** A release is needed for changes in `skills/` and `.claude-plugin/`. The README, CONTRIBUTING, `working/`, this file and the issue forms change without a release, because the agent does not read them as rules.
