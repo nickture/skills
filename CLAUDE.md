@@ -147,6 +147,9 @@ for f in README.md CONTRIBUTING.md skills/*/*.md skills/*/rules/*.md working/int
   # «без» with a judgement, a feeling or someone else's tool. A good example teaches like the rule does,
   # so «Хорошо» lines are not stripped. «Без ручного X» and «без скрытых комиссий» can be legitimate and are not searched for
   sed -E '/^ *> Хорошо:/!s/«[^»]*»//g; s/`[^`]*`//g; s/^( *> Плохо:).*/\1/' "$f" | grep -noiE '(^|[^а-яё])без (лишн|ненужн|уловок|хлопот|головной боли|догад|рутин|суеты|усилий|сторонн)' | sed "s|^|без $f:|"
+  # «разом» in the sense of «одновременно», a colloquial word that models often pick. As in the «без» check,
+  # «Хорошо» lines are kept. «Раз за разом» is legitimate and is removed before the search
+  sed -E '/^ *> Хорошо:/!s/«[^»]*»//g; s/`[^`]*`//g; s/^( *> Плохо:).*/\1/; s/[Рр]аз за разом//g' "$f" | grep -noiE '(^|[^а-яё])разом([^а-яё]|$)' | sed "s|^|разом $f:|"
   # «поэтому» next to «это»: «поэтому» is built from «по этому», and the pair sounds like a repeat
   cite "$f" | grep -noiE '(^|[^а-яё])(поэтому эт|эт(о|а|и|от|у)( [а-яё]+){0,2},? поэтому)' | sed "s|^|поэтому $f:|"
   # a plural verb with no subject after an object pronoun, «его меняют», hides who acts. As in the «без» check,
