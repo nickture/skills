@@ -132,3 +132,5 @@ How to report a mistake in a rule, dispute a rule, or suggest a new rule or sour
 ## License
 
 [CC BY 4.0](LICENSE). You can copy and change the rules, including in commercial projects. Credit me as the author, [Nickture](https://nickture.com), and link to this repository.
+
+[![Nickture Skills on AI Agents Listing](https://aiagentslisting.com/nickture-skills/badge.svg?claim=aa644972c9d9cc4fafc921e5945ea6d0)](https://aiagentslisting.com/mcp/nickture-skills)
