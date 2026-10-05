@@ -1,5 +1,7 @@
 # Knowledge
 
+This file is for editing the skills. To apply them to another project, follow «For AI agents» in `README.md`.
+
 A personal body of expertise in interface design and writing: skills with universal rules that are not tied to any project. They are used in projects (the rules are read on every change to an interface or text), in reviews of finished work, in consulting, workshops and teaching. A project installs the skills and keeps only its own decisions.
 
 ## Where things are
@@ -20,7 +22,7 @@ A personal body of expertise in interface design and writing: skills with univer
 | `working/interface/landing.md` | landing and pricing pages; once finished, it splits into scenarios | on a new rule or a rewrite |
 | `working/interface/patterns.md`, `working/text/patterns.md` | persuasion techniques and dark patterns; unfinished | on a new pattern or source |
 | `working/text/english.md` | rules and markers for English text only, the base for an English version | when a new source has a sign that holds for English only |
-| `README.md` | what this is, installation, usage, updating, privacy, contributing, license | on a new skill or install method |
+| `README.md` | what this is, for AI agents, installation, usage, updating, privacy, contributing, license | on a new skill or install method, and when the way an agent should read the skills changes |
 | `CHANGELOG.md` | what changed in each version and what the number means | on a release |
 | `CONTRIBUTING.md` | where to send mistakes, rules and sources; the license of contributions | on a new way to contribute |
 | `.github/ISSUE_TEMPLATE/*.yml` | issue forms: a mistake or dispute in a rule, a new rule, a new source | on a new skill, which goes into the dropdown |
