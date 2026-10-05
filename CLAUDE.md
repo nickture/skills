@@ -8,7 +8,7 @@ A personal body of expertise in interface design and writing: skills with univer
 
 | File | What it holds | When it changes |
 | --- | --- | --- |
-| `skills/nickture-interface/SKILL.md` | frontmatter, intro, how to read, sections, quick pass | when a rule gets or loses a star, a file is added to `rules/`, or the intro is edited |
+| `skills/nickture-interface/SKILL.md` | frontmatter, intro, how to read, code search, sections, quick pass | when a rule gets or loses a star, a file is added to `rules/`, the intro is edited, or a code search pattern changes |
 | `skills/nickture-interface/rules/*.md` | interface rules, one file per section: principles, what to define, typography, color, space, hierarchy, icons, forms, states, navigation, onboarding, components, mobile, charts, documents, email, accessibility, scrolling, motion, performance, slop | on a new rule or source, when rules are refined |
 | `skills/nickture-interface/sources.md`, `skills/nickture-text-ru/sources.md` | sources and their keys, a separate table for each skill | on a new source |
 | `skills/nickture-text-ru/SKILL.md` | frontmatter, intro, sections and the intro paragraph of the slop section | when a file is added to `rules/` or the intro is edited |
@@ -53,7 +53,7 @@ A personal body of expertise in interface design and writing: skills with univer
 
 ## Checks
 
-Run every command from the repository root. Empty output is good.
+Run every command from the repository root. Empty output is good. A pattern in the second block that holds for any text also goes into the search block of «Сначала механически, потом глазами» in `skills/nickture-text-ru/rules/checking.md`, and the other way round.
 
 ```bash
 I=skills/nickture-interface; T=skills/nickture-text-ru
@@ -129,8 +129,10 @@ awk 'FNR==1 { if (h != "" && !got) print h; h=""; got=0 }
 ```bash
 # helper for the checks below: strip quoted material, which is code, links, standard numbers,
 # «Плохо» lines and everything in guillemets. A bad example in a rule shows a violation on
-# purpose, so it does not count. Line numbers are kept because sed blanks content and keeps lines
-cite() { sed -E 's/`[^`]*`//g; s/\]\([^)]*\)//g; s/ГОСТ [0-9.]+-[0-9]+//g; s/«[^»]*»//g; s/„[^“]*“//g; s/^( *> Плохо:).*/\1/' "$1"; }
+# purpose, so it does not count. Line numbers are kept because sed blanks content and keeps lines.
+# nofence blanks fenced code blocks: the search block in checking.md holds the patterns themselves
+nofence() { awk '/^ *```/ { f = !f; print ""; next } { print f ? "" : $0 }' "$1"; }
+cite() { nofence "$1" | sed -E 's/`[^`]*`//g; s/\]\([^)]*\)//g; s/ГОСТ [0-9.]+-[0-9]+//g; s/«[^»]*»//g; s/„[^“]*“//g; s/^( *> Плохо:).*/\1/'; }
 ADJ='настоящ|следующ|предыдущ|будущ|текущ|общ|недостающ|подходящ|соответствующ'
 
 for f in README.md CONTRIBUTING.md skills/*/*.md skills/*/rules/*.md working/interface/process.md working/*/patterns.md working/*/disagreements.md working/interface/rejected.md; do
@@ -146,21 +148,21 @@ for f in README.md CONTRIBUTING.md skills/*/*.md skills/*/rules/*.md working/int
   cite "$f" | grep -noiE '(^|[^а-яё])(ровно (то|тот|та|те|так|это|этот)([^а-яё]|$)|реально([^а-яё]|$))' | sed "s|^|intensifier $f:|"
   # «без» with a judgement, a feeling or someone else's tool. A good example teaches like the rule does,
   # so «Хорошо» lines are not stripped. «Без ручного X» and «без скрытых комиссий» can be legitimate and are not searched for
-  sed -E '/^ *> Хорошо:/!s/«[^»]*»//g; s/`[^`]*`//g; s/^( *> Плохо:).*/\1/' "$f" | grep -noiE '(^|[^а-яё])без (лишн|ненужн|уловок|хлопот|головной боли|догад|рутин|суеты|усилий|сторонн)' | sed "s|^|без $f:|"
+  nofence "$f" | sed -E '/^ *> Хорошо:/!s/«[^»]*»//g; s/`[^`]*`//g; s/^( *> Плохо:).*/\1/' | grep -noiE '(^|[^а-яё])без (лишн|ненужн|уловок|хлопот|головной боли|догад|рутин|суеты|усилий|сторонн)' | sed "s|^|без $f:|"
   # «разом» in the sense of «одновременно», a colloquial word that models often pick. As in the «без» check,
   # «Хорошо» lines are kept. «Раз за разом» is legitimate and is removed before the search
-  sed -E '/^ *> Хорошо:/!s/«[^»]*»//g; s/`[^`]*`//g; s/^( *> Плохо:).*/\1/; s/[Рр]аз за разом//g' "$f" | grep -noiE '(^|[^а-яё])разом([^а-яё]|$)' | sed "s|^|разом $f:|"
+  nofence "$f" | sed -E '/^ *> Хорошо:/!s/«[^»]*»//g; s/`[^`]*`//g; s/^( *> Плохо:).*/\1/; s/[Рр]аз за разом//g' | grep -noiE '(^|[^а-яё])разом([^а-яё]|$)' | sed "s|^|разом $f:|"
   # «поэтому» next to «это»: «поэтому» is built from «по этому», and the pair sounds like a repeat
   cite "$f" | grep -noiE '(^|[^а-яё])(поэтому эт|эт(о|а|и|от|у)( [а-яё]+){0,2},? поэтому)' | sed "s|^|поэтому $f:|"
   # a plural verb with no subject after an object pronoun, «его меняют», hides who acts. As in the «без» check,
   # «Хорошо» lines are kept. A subject placed after the verb («её задают паддинг») matches too, and such a sentence is reordered
-  sed -E '/^ *> Хорошо:/!s/«[^»]*»//g; s/`[^`]*`//g; s/^( *> Плохо:).*/\1/' "$f" | grep -noiE '(^|[^а-яё])(его|её|их) [а-яё]+(ют|ят)([^а-яё]|$)' | sed "s|^|no subject $f:|"
+  nofence "$f" | sed -E '/^ *> Хорошо:/!s/«[^»]*»//g; s/`[^`]*`//g; s/^( *> Плохо:).*/\1/' | grep -noiE '(^|[^а-яё])(его|её|их) [а-яё]+(ют|ят)([^а-яё]|$)' | sed "s|^|no subject $f:|"
   # chopped phrases: two sentences of one to three words in a row. As in the «без» check, «Хорошо» lines are kept.
   # A single tail cut off a short sentence matches too, and it is allowed once per 750 words
-  sed -E '/^ *> Хорошо:/!s/«[^»]*»//g; s/`[^`]*`//g; s/^( *> Плохо:).*/\1/' "$f" | grep -noE '(^|[.!?] |«|\*\* )[А-ЯЁA-Z][а-яёa-z-]*(,? [а-яёa-z-]+){0,2}[.!?] [А-ЯЁA-Z][а-яёa-z-]*(,? [а-яёa-z-]+){0,2}[.!?]' | sed "s|^|chopped $f:|"
-  # mechanical typography: three dots, straight quotes, a hyphen between digits, «стр.», «8-ми», «90-х гг.», a repeated №,
-  # an arrow, «≈», a warning sign and a line of box-drawing characters in place of a word
-  cite "$f" | grep -noE '(\.\.\.|"[^"]*"|[0-9]-[0-9]|[0-9]+-(ми|та|тил)|стр\. ?[0-9]|[0-9]{2,4}-х гг\.|№ ?[0-9]+, ?№|→|≈|⚠|─)' | sed "s|^|typography $f:|"
+  nofence "$f" | sed -E '/^ *> Хорошо:/!s/«[^»]*»//g; s/`[^`]*`//g; s/^( *> Плохо:).*/\1/' | grep -noE '(^|[.!?] |«|\*\* )[А-ЯЁA-Z][а-яёa-z-]*(,? [а-яёa-z-]+){0,2}[.!?] [А-ЯЁA-Z][а-яёa-z-]*(,? [а-яёa-z-]+){0,2}[.!?]' | sed "s|^|chopped $f:|"
+  # mechanical typography: three dots, straight quotes, a hyphen or an en dash in place of a dash, a hyphen between digits,
+  # «стр.», «8-ми», «90-х гг.», a repeated №, an arrow, «≈», a warning sign and a line of box-drawing characters in place of a word
+  cite "$f" | grep -noE '(\.\.\.|"[^"]*"| [-–] |[0-9]-[0-9]|[0-9]+-(ми|та|тил)|стр\. ?[0-9]|[0-9]{2,4}-х гг\.|№ ?[0-9]+, ?№|→|≈|⚠|─)' | sed "s|^|typography $f:|"
 done
 ```
 
