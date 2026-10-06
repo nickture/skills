@@ -1,6 +1,6 @@
 ---
 name: nickture-text-ru
-description: 'Правила русского текста для проверки и правки: заголовки, порядок изложения, кто говорит, единообразие, утверждения, выбор слов, числа, типографика, формы и подписи, тексты интерфейса, сообщения и ошибки, переписка, мета-теги, признаки сгенерированного текста (слоп). Применяется, когда пишется, редактируется или проверяется любой текст на русском: документ, страница, кнопка, ошибка, письмо, ответ клиенту. Вёрстка проверяется по скиллу nickture-interface. Checkable rules for writing, editing, reviewing and auditing Russian text: word choice, numbers, typography, UI copy, error messages, emails and signs of AI-generated writing.'
+description: 'Правила русского текста для проверки и правки: заголовки, порядок изложения, кто говорит, единообразие, утверждения, выбор слов, числа, типографика, формы и подписи, тексты интерфейса, сообщения и ошибки, переписка, мета-теги, признаки сгенерированного текста (слоп). Применяется, когда пишется, редактируется, переводится или проверяется любой текст на русском: документ, страница, кнопка, ошибка, письмо, ответ клиенту. Вёрстка проверяется по скиллу nickture-interface. Checkable rules for writing, translating, editing, reviewing and auditing Russian text: word choice, numbers, typography, UI copy, error messages, emails and signs of AI-generated writing.'
 ---
 
 # Правила текста
