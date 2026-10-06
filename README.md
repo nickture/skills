@@ -1,4 +1,4 @@
-# Nickture Skills
+# Nickture Skills for interface polish, Russian copy and AI deslop
 
 Two Agent Skills that help an AI agent make an interface clear, consistent, easy to use and scalable, and Russian text clear and correct, without the signs of AI-generated work. Each skill is a set of checkable rules. The agent follows them when it edits an interface or text, and reviews finished work against them. They work in Claude, Codex, Cursor and other compatible agents.
 
