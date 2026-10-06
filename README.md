@@ -33,6 +33,16 @@ Read `SKILL.md` of each skill and every file in its `rules/` folder in full. Che
 
 Install the skills or clone the repository. A link to it in a prompt is not enough, because the agent reads the link through a web fetch tool, which passes on a summary instead of the rules.
 
+### From the Claude Directory
+
+The plugin is in the Claude Directory. In the Claude app and in Cowork, open [the plugin page](https://claude.ai/customize/plugins/id/80b13ceb-a207-49bd-8197-8e12c551062f%40anthropic-plugin-directory) and select Add. In Claude Code, run this command:
+
+```text
+/plugin install nickture-skills@anthropic-plugin-directory
+```
+
+Claude Code has the directory built in, so you don’t add a marketplace first.
+
 ### With the skills CLI
 
 It installs skills into Claude Code, Codex, Cursor and other agents, and runs on Node.js or Bun. Documentation is at [skills.sh](https://skills.sh).
@@ -149,4 +159,6 @@ How to report a mistake in a rule, dispute a rule, or suggest a new rule or sour
 
 [CC BY 4.0](LICENSE). You can copy and change the rules, including in commercial projects. Credit me as the author, [Nickture](https://nickture.com), and link to this repository.
 
-[![Nickture Skills on AI Agents Listing](https://aiagentslisting.com/nickture-skills/badge.svg?claim=aa644972c9d9cc4fafc921e5945ea6d0)](https://aiagentslisting.com/mcp/nickture-skills)
+---
+
+[![Listed in the Claude Directory](https://img.shields.io/badge/Claude_Directory-listed-0a0d12)](https://claude.ai/customize/plugins/id/80b13ceb-a207-49bd-8197-8e12c551062f%40anthropic-plugin-directory) [![Nickture Skills on AI Agents Listing](https://aiagentslisting.com/nickture-skills/badge.svg?claim=aa644972c9d9cc4fafc921e5945ea6d0)](https://aiagentslisting.com/mcp/nickture-skills)
