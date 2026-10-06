@@ -17,7 +17,21 @@ With `nickture-text-ru` the agent edits text so it reads easily and is correct, 
 
 The rules come from my own reviews and thinking, and from open catalogs, books and articles. The key at the end of a rule points to the source table in `sources.md`. In `nickture-interface` a star ★ marks the rules about the most visible mistakes. They are listed in the quick pass (Экспресс-проход) section, and when time is short they are checked first. A rule can be broken when there is a reason for it.
 
+## For AI agents
+
+If you were given a link to this repository, clone it into a temporary folder outside the project and read the files from disk.
+
+```bash
+git clone --depth 1 https://github.com/nickture/skills /tmp/nickture-skills
+```
+
+A web fetch tool returns a short summary instead of the file, so the rules never reach you. If you can’t clone, read each file in full from `raw.githubusercontent.com` with a tool that returns it unchanged. If that is impossible too, tell the user that the rules were not read in full.
+
+Read `SKILL.md` of each skill and every file in its `rules/` folder in full. Check the text against `nickture-text-ru` first, then the layout against `nickture-interface` on the rendered page. Check what you wrote yourself the same way as someone else’s work. Take the product from an exact copy: its files, or the page downloaded with `curl` or opened in a browser. A summary of the page is not enough.
+
 ## Installation
+
+Install the skills or clone the repository. A link to it in a prompt is not enough, because the agent reads the link through a web fetch tool, which passes on a summary instead of the rules.
 
 ### With the skills CLI
 
@@ -87,7 +101,9 @@ There are many rules, and a full review reads every section. A weaker model or a
 
 `max` lasts until the end of the session, `high` carries over to the next ones. In Codex, choose the model and reasoning effort with `/model`.
 
-Together the two skills take about 80 thousand tokens. Add the project code, and a 200K context window may run out of room. Claude Code then compacts the conversation, and the rules it read shrink to a short summary. With that window, review the interface and the text in separate sessions. In Claude Code, Opus 4.7 and later and Sonnet 5 and later have a 1M-token window, and both skills take less than a tenth of it.
+Review the text and the layout in separate passes, text first. In a shared pass the text rules get lost among the visual ones, and a text fix changes the length of lines and blocks that the layout check depends on.
+
+Together the two skills take about 80 thousand tokens. Add the project code, and a 200K context window may run out of room. Claude Code then compacts the conversation, and the rules it read shrink to a short summary. With that window, run the two passes in separate sessions. In Claude Code, Opus 4.7 and later and Sonnet 5 and later have a 1M-token window, and both skills take less than a tenth of it.
 
 After the fixes, run the review again in a new session (`/clear` in Claude Code) so the agent reads the rules afresh. This finds what the first run missed and what the fixes broke.
 
@@ -132,3 +148,5 @@ How to report a mistake in a rule, dispute a rule, or suggest a new rule or sour
 ## License
 
 [CC BY 4.0](LICENSE). You can copy and change the rules, including in commercial projects. Credit me as the author, [Nickture](https://nickture.com), and link to this repository.
+
+[![Nickture Skills on AI Agents Listing](https://aiagentslisting.com/nickture-skills/badge.svg?claim=aa644972c9d9cc4fafc921e5945ea6d0)](https://aiagentslisting.com/mcp/nickture-skills)

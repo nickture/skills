@@ -12,6 +12,38 @@ Before 1.0.0 a renamed or removed heading and a new rule both bump the minor dig
 
 A version opens with a short summary of what it brings, then lists its changes under Breaking, Added, Changed and Fixed. Inside each part the changes are grouped by skill and then by section, so each name is written once. Breaking names every renamed or removed heading with its replacement, so you know what to change in your Foundation. A rule is named in English by its meaning, with the Russian heading in parentheses to search for.
 
+## 0.5.0 — 2026-10-06
+
+An agent given a link to this repository read a summary of the rules from a web fetch tool and applied the summary. It also had nothing to run on someone else's text, because the search patterns checked only the files of this repository. A generator could justify its own template with a concept it invented while building the page, and the slop rules accepted that as a reason. No heading was renamed or removed.
+
+### Added
+
+#### Interface
+
+- Intro: the skill files are read from disk in full. Given a link, the agent clones the repository into a temporary folder outside the project or takes whole files from `raw.githubusercontent.com`, because a web fetch tool returns a summary without the wording and examples a rule is applied by. The report lists the `rules/` files read and names any left unread. A page under review is checked from its downloaded code and the rendered screen. Layout the agent built itself is checked like anyone else's. When a check covers both text and layout, the text pass runs first, because a text edit changes the length of lines and blocks.
+- Code search (Поиск по коду): a new section of `grep` patterns for a removed focus ring, `transition: all`, a blocked zoom gesture, blocks hidden until they scroll into view, and monospaced type. A match is checked against the rule named above its pattern.
+
+#### Text
+
+- Intro: the same paragraph on reading the skill files and on the order of the text and layout passes. The text under review is exact, taken from the project files or the live page, and the agent's own text is checked like anyone else's.
+- How to check: the rule on searching before reading by eye (Сначала механически, потом глазами) carries a `grep` block for any text. It covers «не X, а Y» against its limit, stop words, intensifiers, officialese, participles, chopped phrases and typography. Without a browser, a live page is downloaded with `curl` and stripped to text.
+
+### Changed
+
+#### Interface
+
+Slop:
+
+- The section intro: a technique has a reason only when the reason is recorded in the project Foundation. A concept the agent invents while working, to explain its own technique, is not a reason. The ready-made generator style uses the same test (Готовая стилистика генератора).
+- The three-column template covers the same row or grid without icons too, including tiles divided by hairlines or with an eyebrow over each title (Три колонки «иконка в цветном круге, жирный заголовок, две строки»).
+- A row of eyebrows over cards of one type stays a template even when each eyebrow adds something, and that addition moves into the card title (Шаблонные визуальные приёмы).
+
+#### Text
+
+- Headings: the eyebrow rule points to the interface rule on a row of eyebrows over cards (Ярлык добавляет к заголовку новое).
+- Typography: a spaced en dash in place of a dash is wrong, as a hyphen is (Тире пишется «—» с пробелами, диапазон «–» без пробелов).
+- Words: «разом» in the sense of «одновременно» is a colloquial word that models often pick, and it becomes «одновременно» or «сразу». «Раз за разом» stays (Язык деловой, без разговорного).
+
 ## 0.4.0 — 2026-10-03
 
 The scope of one rule changed, so the minor digit goes up. No heading was renamed or removed.
