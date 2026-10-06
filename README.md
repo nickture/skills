@@ -161,4 +161,6 @@ How to report a mistake in a rule, dispute a rule, or suggest a new rule or sour
 
 ---
 
-[![Listed in the Claude Directory](https://img.shields.io/badge/Claude_Directory-listed-0a0d12)](https://claude.ai/customize/plugins/id/80b13ceb-a207-49bd-8197-8e12c551062f%40anthropic-plugin-directory) [![Nickture Skills on AI Agents Listing](https://aiagentslisting.com/nickture-skills/badge.svg?claim=aa644972c9d9cc4fafc921e5945ea6d0)](https://aiagentslisting.com/mcp/nickture-skills)
+[![Listed in the Claude Directory](https://img.shields.io/badge/Claude_Directory-listed-0a0d12)](https://claude.ai/customize/plugins/id/80b13ceb-a207-49bd-8197-8e12c551062f%40anthropic-plugin-directory)
+
+[![Nickture Skills on AI Agents Listing](https://aiagentslisting.com/nickture-skills/badge.svg?claim=aa644972c9d9cc4fafc921e5945ea6d0)](https://aiagentslisting.com/mcp/nickture-skills)

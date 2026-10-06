@@ -12,6 +12,31 @@ Before 1.0.0 a renamed or removed heading and a new rule both bump the minor dig
 
 A version opens with a short summary of what it brings, then lists its changes under Breaking, Added, Changed and Fixed. Inside each part the changes are grouped by skill and then by section, so each name is written once. Breaking names every renamed or removed heading with its replacement, so you know what to change in your Foundation. A rule is named in English by its meaning, with the Russian heading in parentheses to search for.
 
+## 0.6.0 — 2026-10-06
+
+Ideas from the ru-style skill by Andy Bezukladnikov. Most of what ru-style covers was already in the text skill, so this release adds markers to existing rules and one typography norm. The norm widens what a rule checks, so the minor digit goes up. No heading was renamed or removed.
+
+### Added
+
+#### Text
+
+Sources: new key `bezukladnikov`, the ru-style skill by Andy Bezukladnikov.
+
+### Changed
+
+#### Text
+
+- Description: translation into Russian is listed next to writing, editing and reviewing, so an agent loads the skill when it translates too.
+- Typography: a size is written with «×» and a space on each side, «30 × 40 см», and the letter «х» or «x» does not replace the sign (Знаки и единицы отбиваются по норме).
+- How to check: the search block finds the letter «х» or «x» between two digits (Сначала механически, потом глазами).
+- Slop
+  - «Очевидно, что», «как известно» and «заставляет задуматься» tell the reader how to take a fact (Подсказка, что чувствовать).
+  - «Исследует» and «переосмысливает» belong to a person, so a report or a redesign does not do them (Ложная агентность).
+  - «И для новичков, и для профессионалов» pretends to write for everyone (Мнимая широта аудитории).
+  - A question about the reader's trouble at the top of a page, such as «Устали от…?», counts as a rhetorical question (Риторический вопрос).
+  - The stop-word table gets «бросает вызов» and «стирает границы» (Слово в переносном смысле).
+- Correspondence: «Уважаемый клиент» and «возникли технические сложности» are officialese. The letter says what broke and when it works again, and addresses the person by name or with «Здравствуйте» (Канцелярит переписки).
+
 ## 0.5.1 — 2026-10-06
 
 Anthropic's directory takes the plugin name from the published version, so a new name needs a release. The rules are unchanged.
