@@ -12,6 +12,15 @@ Before 1.0.0 a renamed or removed heading and a new rule both bump the minor dig
 
 A version opens with a short summary of what it brings, then lists its changes under Breaking, Added, Changed and Fixed. Inside each part the changes are grouped by skill and then by section, so each name is written once. Breaking names every renamed or removed heading with its replacement, so you know what to change in your Foundation. A rule is named in English by its meaning, with the Russian heading in parentheses to search for.
 
+## 0.5.1 — 2026-10-06
+
+Anthropic's directory takes the plugin name from the published version, so a new name needs a release. The rules are unchanged.
+
+### Changed
+
+- The plugin is called «Nickture Skills for interface polish, Russian copy and AI deslop». It used to be «Nickture Skills», which said nothing about what the skills do.
+- The plugin icon has transparent rounded corners. The directory frames it in a white tile with padding, and the square corners looked unfinished there.
+
 ## 0.5.0 — 2026-10-06
 
 An agent given a link to this repository read a summary of the rules from a web fetch tool and applied the summary. It also had nothing to run on someone else's text, because the search patterns checked only the files of this repository. A generator could justify its own template with a concept it invented while building the page, and the slop rules accepted that as a reason. No heading was renamed or removed.
