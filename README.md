@@ -157,7 +157,7 @@ How to report a mistake in a rule, dispute a rule, or suggest a new rule or sour
 
 ## License
 
-[CC BY 4.0](LICENSE). You can copy and change the rules, including in commercial projects. Credit me as the author, [Nickture](https://nickture.com), and link to this repository.
+[CC BY 4.0](LICENSE). You can copy and change the rules, including in commercial projects. Credit me as the author, [Nick](https://nickture.com), and link to this repository.
 
 ---
 
