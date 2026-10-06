@@ -163,8 +163,8 @@ for f in README.md CONTRIBUTING.md skills/*/*.md skills/*/rules/*.md working/int
   # A single tail cut off a short sentence matches too, and it is allowed once per 750 words
   nofence "$f" | sed -E '/^ *> Хорошо:/!s/«[^»]*»//g; s/`[^`]*`//g; s/^( *> Плохо:).*/\1/' | grep -noE '(^|[.!?] |«|\*\* )[А-ЯЁA-Z][а-яёa-z-]*(,? [а-яёa-z-]+){0,2}[.!?] [А-ЯЁA-Z][а-яёa-z-]*(,? [а-яёa-z-]+){0,2}[.!?]' | sed "s|^|chopped $f:|"
   # mechanical typography: three dots, straight quotes, a hyphen or an en dash in place of a dash, a hyphen between digits,
-  # «стр.», «8-ми», «90-х гг.», a repeated №, an arrow, «≈», a warning sign and a line of box-drawing characters in place of a word
-  cite "$f" | grep -noE '(\.\.\.|"[^"]*"| [-–] |[0-9]-[0-9]|[0-9]+-(ми|та|тил)|стр\. ?[0-9]|[0-9]{2,4}-х гг\.|№ ?[0-9]+, ?№|→|≈|⚠|─)' | sed "s|^|typography $f:|"
+  # «стр.», «8-ми», «90-х гг.», a repeated №, the letter «х» in a size, an arrow, «≈», a warning sign and a line of box-drawing characters in place of a word
+  cite "$f" | grep -noE '(\.\.\.|"[^"]*"| [-–] |[0-9]-[0-9]|[0-9]+-(ми|та|тил)|стр\. ?[0-9]|[0-9]{2,4}-х гг\.|№ ?[0-9]+, ?№|[0-9] ?[хx] ?[0-9]|→|≈|⚠|─)' | sed "s|^|typography $f:|"
 done
 ```
 
