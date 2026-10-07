@@ -12,6 +12,23 @@ Before 1.0.0 a renamed or removed heading and a new rule both bump the minor dig
 
 A version opens with a short summary of what it brings, then lists its changes under Breaking, Added, Changed and Fixed. Inside each part the changes are grouped by skill and then by section, so each name is written once. Breaking names every renamed or removed heading with its replacement, so you know what to change in your Foundation. A rule is named in English by its meaning, with the Russian heading in parentheses to search for.
 
+## 0.7.2 — 2026-10-07
+
+A page given by address is checked in a browser first. A downloaded copy lacks the text that scripts, animations and clicks bring in, so it serves the search only when no browser is at hand. The rules check the same things, so the patch digit goes up. No heading was renamed or removed.
+
+### Changed
+
+#### Interface
+
+- Intro: a page given by address opens in a browser, and its code is downloaded for the search. A browser counts as missing only when none of the agent's tools can open a page, even one it has to load first.
+
+#### Text
+
+- Intro: a page given by address opens in a browser before the search, and the text for the search comes from there.
+- How to check
+  - The page is downloaded with `curl` only when none of the agent's tools can open it in a browser. The search runs first, and then the whole text is read on the live page (Сначала механически, потом глазами).
+  - Downloaded code, images and screenshots do not replace the browser. The agent scrolls to the end, watches the animations, switches tabs and slides, opens answers and tooltips, and repeats the pass at phone width (Глазами, на живой странице).
+
 ## 0.7.1 — 2026-10-07
 
 Both skills already asked for a rendered screen or a live page. This release says how the agent gets one. The rules check the same things, so the patch digit goes up. No heading was renamed or removed.

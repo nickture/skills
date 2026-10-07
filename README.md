@@ -27,7 +27,7 @@ git clone --depth 1 https://github.com/nickture/skills /tmp/nickture-skills
 
 A web fetch tool returns a short summary instead of the file, so the rules never reach you. If you can’t clone, read each file in full from `raw.githubusercontent.com` with a tool that returns it unchanged. If that is impossible too, tell the user that the rules were not read in full.
 
-To review a finished project, read `SKILL.md` of each skill and every file in its `rules/` folder in full. Review the text and the layout in separate runs, each in its own agent or session. Check the text against `nickture-text-ru` first, then the layout against `nickture-interface` on the rendered page. For an edit, read `SKILL.md`, the slop sections and the sections the edit touches, and check your result against them. Take the product from an exact copy: its files, or the page downloaded with `curl` or opened in a browser. A summary of the page is not enough.
+To review a finished project, read `SKILL.md` of each skill and every file in its `rules/` folder in full. Review the text and the layout in separate runs, each in its own agent or session. Check the text against `nickture-text-ru` first, then the layout against `nickture-interface` on the rendered page. For an edit, read `SKILL.md`, the slop sections and the sections the edit touches, and check your result against them. Take the product from an exact copy: its files, or the live page opened in a browser. Download the page with `curl` for the search scripts, or instead of the browser only when none of your tools can open one. A summary of the page is not enough.
 
 ## Installation
 
