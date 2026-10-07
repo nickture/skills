@@ -97,7 +97,7 @@ Example requests:
 
 A review of a finished project reads every rule. An edit, such as a new component or a changed screen, reads the slop sections and only the sections it touches. The agent picks them from the section table in `SKILL.md`.
 
-Run a review in plan mode. In it the agent reads the sections on the topic, lists the rules that are broken and proposes fixes. It changes files only after you approve the plan, so you can drop a fix you disagree with before it reaches the code.
+Run a review in plan mode. In it the agent reads the rules, lists the ones that are broken and proposes fixes. It changes files only after you approve the plan, so you can drop a fix you disagree with before it reaches the code.
 
 | Agent | How to turn it on |
 | --- | --- |
@@ -105,7 +105,7 @@ Run a review in plan mode. In it the agent reads the sections on the topic, list
 | Codex | `/plan` |
 | Cursor | `Shift+Tab` in the chat input |
 
-There are many rules, and a full review reads every section. A weaker model or a low reasoning effort reads selectively and skips rules, so use the strongest model you have. In Claude Code that is Opus or Sonnet with effort set to `high` or `max`, and some of them default to `medium`.
+A weaker model or a low reasoning effort reads selectively and skips rules, so use the strongest model you have. In Claude Code that is Opus or Sonnet with effort set to `high` or `max`, and some of them default to `medium`.
 
 ```text
 /effort high
@@ -151,7 +151,7 @@ working/
 
 ## Privacy
 
-The skills are text files with rules. They collect, store and send no data, and the plugin runs no code of its own. The agent reads your interface or text in the session you already have with it, and that agent’s own privacy policy applies.
+The skills are text files with rules and two shell scripts that search the files they are given. They collect, store and send no data, and the plugin starts nothing on its own. The agent reads your interface or text and runs the scripts in the session you already have with it, and that agent’s own privacy policy applies.
 
 ## Contributing
 
