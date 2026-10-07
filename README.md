@@ -27,7 +27,7 @@ git clone --depth 1 https://github.com/nickture/skills /tmp/nickture-skills
 
 A web fetch tool returns a short summary instead of the file, so the rules never reach you. If you can’t clone, read each file in full from `raw.githubusercontent.com` with a tool that returns it unchanged. If that is impossible too, tell the user that the rules were not read in full.
 
-Read `SKILL.md` of each skill and every file in its `rules/` folder in full. Check the text against `nickture-text-ru` first, then the layout against `nickture-interface` on the rendered page. Check what you wrote yourself the same way as someone else’s work. Take the product from an exact copy: its files, or the page downloaded with `curl` or opened in a browser. A summary of the page is not enough.
+To review a finished project, read `SKILL.md` of each skill and every file in its `rules/` folder in full. Review the text and the layout in separate runs, each in its own agent or session. Check the text against `nickture-text-ru` first, then the layout against `nickture-interface` on the rendered page. For an edit, read `SKILL.md`, the slop sections and the sections the edit touches, and check your result against them. Take the product from an exact copy: its files, or the page downloaded with `curl` or opened in a browser. A summary of the page is not enough.
 
 ## Installation
 
@@ -95,7 +95,9 @@ Example requests:
 - “Rewrite the error messages in the sign-up form with nickture-text-ru”
 - “Run the nickture-interface quick pass on the pricing page”
 
-Run a review in plan mode. In it the agent reads the sections on the topic, lists the rules that are broken and proposes fixes. It changes files only after you approve the plan, so you can drop a fix you disagree with before it reaches the code.
+A review of a finished project reads every rule. An edit, such as a new component or a changed screen, reads the slop sections and only the sections it touches. The agent picks them from the section table in `SKILL.md`.
+
+Run a review in plan mode. In it the agent reads the rules, lists the ones that are broken and proposes fixes. It changes files only after you approve the plan, so you can drop a fix you disagree with before it reaches the code.
 
 | Agent | How to turn it on |
 | --- | --- |
@@ -103,7 +105,7 @@ Run a review in plan mode. In it the agent reads the sections on the topic, list
 | Codex | `/plan` |
 | Cursor | `Shift+Tab` in the chat input |
 
-There are many rules, and a full review reads every section. A weaker model or a low reasoning effort reads selectively and skips rules, so use the strongest model you have. In Claude Code that is Opus or Sonnet with effort set to `high` or `max`, and some of them default to `medium`.
+A weaker model or a low reasoning effort reads selectively and skips rules, so use the strongest model you have. In Claude Code that is Opus or Sonnet with effort set to `high` or `max`, and some of them default to `medium`.
 
 ```text
 /effort high
@@ -111,9 +113,9 @@ There are many rules, and a full review reads every section. A weaker model or a
 
 `max` lasts until the end of the session, `high` carries over to the next ones. In Codex, choose the model and reasoning effort with `/model`.
 
-Review the text and the layout in separate passes, text first. In a shared pass the text rules get lost among the visual ones, and a text fix changes the length of lines and blocks that the layout check depends on.
+Review the text and the layout in separate runs, text first, each in its own agent or session. In a shared run the text rules get lost among the visual ones, and a text fix changes the length of lines and blocks that the layout check depends on.
 
-Together the two skills take about 80 thousand tokens. Add the project code, and a 200K context window may run out of room. Claude Code then compacts the conversation, and the rules it read shrink to a short summary. With that window, run the two passes in separate sessions. In Claude Code, Opus 4.7 and later and Sonnet 5 and later have a 1M-token window, and both skills take less than a tenth of it.
+Separate runs also save room. Together the two skills fill more than half of a 200K context window. Add the project code, and Claude Code compacts the conversation, so the rules it read shrink to a short summary. In Claude Code, Opus 4.7 and later and Sonnet 5 and later have a 1M-token window, where a single skill leaves most of the room for the project.
 
 After the fixes, run the review again in a new session (`/clear` in Claude Code) so the agent reads the rules afresh. This finds what the first run missed and what the fixes broke.
 
@@ -138,8 +140,8 @@ Each skill used to be a separate plugin, `nickture-interface` and `nickture-text
 
 ```text
 skills/
-  nickture-interface/   SKILL.md, rules/, sources.md
-  nickture-text-ru/     SKILL.md, rules/, sources.md
+  nickture-interface/   SKILL.md, rules/, scripts/, sources.md
+  nickture-text-ru/     SKILL.md, rules/, scripts/, sources.md
 working/
   interface/            editorial notes and drafts for the interface skill
   text/                 editorial notes and drafts for the text skill
@@ -149,7 +151,7 @@ working/
 
 ## Privacy
 
-The skills are text files with rules. They collect, store and send no data, and the plugin runs no code of its own. The agent reads your interface or text in the session you already have with it, and that agent’s own privacy policy applies.
+The skills are text files with rules and two shell scripts that search the files they are given. They collect, store and send no data, and the plugin starts nothing on its own. The agent reads your interface or text and runs the scripts in the session you already have with it, and that agent’s own privacy policy applies.
 
 ## Contributing
 
@@ -157,7 +159,7 @@ How to report a mistake in a rule, dispute a rule, or suggest a new rule or sour
 
 ## License
 
-[CC BY 4.0](LICENSE). You can copy and change the rules, including in commercial projects. Credit me as the author, [Nickture](https://nickture.com), and link to this repository.
+[CC BY 4.0](LICENSE). You can copy and change the rules, including in commercial projects. Credit me as the author, [Nick](https://nickture.com), and link to this repository.
 
 ---
 

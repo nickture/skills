@@ -12,6 +12,49 @@ Before 1.0.0 a renamed or removed heading and a new rule both bump the minor dig
 
 A version opens with a short summary of what it brings, then lists its changes under Breaking, Added, Changed and Fixed. Inside each part the changes are grouped by skill and then by section, so each name is written once. Breaking names every renamed or removed heading with its replacement, so you know what to change in your Foundation. A rule is named in English by its meaning, with the Russian heading in parentheses to search for.
 
+## 0.7.0 — 2026-10-07
+
+The interface skill covers work screens in more detail, from long tables to icon buttons and the borders of blocks. Reading the skills costs fewer tokens. An edit reads only the sections it touches, and a review reads every file in two separate runs, one per skill. The search patterns of both skills now run as scripts, so an agent no longer copies them by hand. New rules bump the minor digit. No heading was renamed or removed.
+
+### Added
+
+#### Interface
+
+- Hierarchy: blocks of a work screen show their borders when you squint and carry headings. The rules against cards, lines and extra text levels remove neither (Блоки рабочего экрана видны и подписаны).
+- Icons: an action repeated in every row and a toolbar command are icon buttons with a tooltip and `aria-label`. The main action keeps its label, and an icon goes without one only when its meaning is unambiguous (Действие в строке и на панели — иконкой).
+- Components
+  - A long table loads rows as you scroll, shows how many there are, and renders only the visible ones when there are thousands (Длинная таблица подгружается порциями).
+  - A column aligns by its content: text left, numbers right, the header with its values (Колонка выровнена по своему содержимому).
+
+### Changed
+
+#### Interface
+
+- Intro
+  - An edit reads `SKILL.md`, the principles, the slop section and the sections it touches. Layout built during an edit is checked against what was read, and only a review of a finished project reads every file.
+  - A component the agent added or changed is also checked on a temporary page or in the project's Storybook. Stub data shows its states side by side, along with long text, one row and a thousand rows.
+  - A finished project is reviewed in two separate runs, text first and then layout, each skill in its own agent or session.
+- Code search: the patterns moved into `scripts/search.sh`. Each line of its output names the rule to check the match against.
+- Icons: the cross closes or hides, and only the trash icon deletes data (Зарезервированные действия у своих иконок).
+- Scrolling: loading on scroll covers table rows too (Длинная выдача подгружается сама).
+- Slop: a period at the end of a heading moved from decorative numbering to the template visual tricks (Шаблонные визуальные приёмы).
+
+#### Text
+
+- Intro: an edit reads `SKILL.md`, the slop sections and the sections it touches. A review of a finished project still reads every file, and text and layout are reviewed in separate runs.
+- How to check: the patterns moved into `scripts/check.sh`, which names the rule next to every match. It also skips HTML tags and the legitimate cases listed after «законно» on good-example lines (Сначала механически, потом глазами).
+- Headings: the period rule points to the template visual tricks of the interface skill (В конце заголовка точки нет, после номера (в нумерованных заголовках) есть).
+
+### Fixed
+
+#### Interface
+
+- Space: «где токена нет вовсе» loses its intensifier (Значения только из шкалы).
+
+#### Text
+
+- How to check: the rule promised three searches that the patterns never had. Guillemets inside a link, markup in text and colons in neighboring sentences are gone from its list (Сначала механически, потом глазами).
+
 ## 0.6.0 — 2026-10-06
 
 Ideas from the ru-style skill by Andy Bezukladnikov. Most of what ru-style covers was already in the text skill, so this release adds markers to existing rules and one typography norm. The norm widens what a rule checks, so the minor digit goes up. No heading was renamed or removed.
