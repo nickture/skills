@@ -128,11 +128,19 @@ The Claude Code plugin gets only released versions. They are listed with their c
 | How the skill was installed | How to update |
 | --- | --- |
 | skills CLI | `npx skills update` or `bunx skills update` |
-| Claude Code plugin | `/plugin marketplace update nickture`, then `/reload-plugins` |
+| Claude Code plugin | `claude plugin update nickture-skills@nickture` in the shell, then `/reload-plugins` in an open session |
 | Symlink to a clone | `git pull` in the clone folder |
 | Copied folder | Copy it again |
 
-Only the plugin updates itself, and only with auto-update turned on. It is off by default for third-party marketplaces. Turn it on in `/plugin` on the Marketplaces tab with Enable auto-update.
+Only the plugin updates itself, and only with auto-update turned on. It is off by default for third-party marketplaces. Turn it on in `/plugin` on the Marketplaces tab with Enable auto-update, or in `~/.claude/settings.json`.
+
+```json
+"extraKnownMarketplaces": {
+  "nickture": { "source": { "source": "github", "repo": "nickture/skills" }, "autoUpdate": true }
+}
+```
+
+`/plugin marketplace update nickture` refreshes only the list of versions and leaves the installed plugin as it is.
 
 Each skill used to be a separate plugin, `nickture-interface` and `nickture-text-ru`. Now both are in one plugin, `nickture-skills`. If you installed the old plugins, update the marketplace and run `/plugin install nickture-skills@nickture` once. The old plugins are then replaced with the new one.
 
