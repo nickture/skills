@@ -14,7 +14,7 @@ A version opens with a short summary of what it brings, then lists its changes u
 
 ## 0.7.0 — 2026-10-07
 
-A person who tried the skills reported four problems. The agent laid out a long table as one sheet and wrote text buttons where icons belonged. It left blocks of a work screen without borders or headings and spent many tokens on reading the rules. This release adds the rules those screens lacked and splits reading into two modes. An edit reads only what it touches, and a review of a finished project reads everything. New rules bump the minor digit. No heading was renamed or removed.
+The interface skill covers work screens in more detail, from long tables to icon buttons and the borders of blocks. Reading the skills costs fewer tokens. An edit reads only the sections it touches, and a review reads every file in two separate runs, one per skill. The search patterns of both skills now run as scripts, so an agent no longer copies them by hand. New rules bump the minor digit. No heading was renamed or removed.
 
 ### Added
 
