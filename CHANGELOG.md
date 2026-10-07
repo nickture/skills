@@ -12,6 +12,16 @@ Before 1.0.0 a renamed or removed heading and a new rule both bump the minor dig
 
 A version opens with a short summary of what it brings, then lists its changes under Breaking, Added, Changed and Fixed. Inside each part the changes are grouped by skill and then by section, so each name is written once. Breaking names every renamed or removed heading with its replacement, so you know what to change in your Foundation. A rule is named in English by its meaning, with the Russian heading in parentheses to search for.
 
+## 0.7.3 — 2026-10-07
+
+The text for the search now covers the whole page, including the sections a browser draws only when they scroll into view. The rules check the same things, so the patch digit goes up. No heading was renamed or removed.
+
+### Changed
+
+#### Text
+
+- How to check: before the text is taken from the browser, the page gets the style `* { content-visibility: visible !important }`. Without it `innerText` leaves out sections with `content-visibility: auto` that are off screen, and all of them in a background tab (Сначала механически, потом глазами).
+
 ## 0.7.2 — 2026-10-07
 
 A page given by address is checked in a browser first. A downloaded copy lacks the text that scripts, animations and clicks bring in, so it serves the search only when no browser is at hand. The rules check the same things, so the patch digit goes up. No heading was renamed or removed.
