@@ -35,7 +35,9 @@ Install the skills or clone the repository. A link to it in a prompt is not enou
 
 ### From the Claude Directory
 
-The plugin is in the Claude Directory. In the Claude app and in Cowork, open [the plugin page](https://claude.ai/customize/plugins/id/80b13ceb-a207-49bd-8197-8e12c551062f%40anthropic-plugin-directory) and select Add. In Claude Code, run this command:
+The plugin is in the Claude Directory. Open [the plugin page](https://claude.ai/customize/plugins/id/80b13ceb-a207-49bd-8197-8e12c551062f%40anthropic-plugin-directory) on claude.ai and select Add. The plugin then works in the Claude app and in Cowork. It also loads in Claude Code when you sign in there with the same account, in version 2.1.273 or later. This is the only way the plugin updates by itself without any setup. A new version reaches the directory after Anthropic reviews it, so the directory can be a few versions behind GitHub.
+
+To install from the directory inside Claude Code, run this command:
 
 ```text
 /plugin install nickture-skills@anthropic-plugin-directory
@@ -67,6 +69,8 @@ bunx skills add nickture/skills --skill nickture-interface -g
 ```
 
 The first command adds the plugin marketplace, the second installs the plugin with both skills. To install just one skill, use the skills CLI with `--skill`.
+
+Then turn on auto-update. In `/plugin`, open the Marketplaces tab, select `nickture` and select Enable auto-update. Claude Code keeps it off for marketplaces outside Anthropic’s, and without it the plugin stays on the version you installed. With it on, each version comes from GitHub as soon as it is released, without a review.
 
 ### Manually
 
@@ -128,11 +132,12 @@ The Claude Code plugin gets only released versions. They are listed with their c
 | How the skill was installed | How to update |
 | --- | --- |
 | skills CLI | `npx skills update` or `bunx skills update` |
-| Claude Code plugin | `claude plugin update nickture-skills@nickture` in the shell, then `/reload-plugins` in an open session |
+| Claude Directory | By itself, once Anthropic publishes the version |
+| Claude Code plugin from `nickture` | By itself with auto-update on. Without it, `claude plugin update nickture-skills@nickture` in the shell, then `/reload-plugins` in an open session |
 | Symlink to a clone | `git pull` in the clone folder |
 | Copied folder | Copy it again |
 
-Only the plugin updates itself, and only with auto-update turned on. It is off by default for third-party marketplaces. Turn it on in `/plugin` on the Marketplaces tab with Enable auto-update, or in `~/.claude/settings.json`.
+Auto-update for the `nickture` marketplace is turned on in `/plugin`, as described in [Installation](#as-a-claude-code-plugin), or in `~/.claude/settings.json`.
 
 ```json
 "extraKnownMarketplaces": {
@@ -140,7 +145,7 @@ Only the plugin updates itself, and only with auto-update turned on. It is off b
 }
 ```
 
-`/plugin marketplace update nickture` refreshes only the list of versions and leaves the installed plugin as it is.
+A team can put the same entry into managed settings, and auto-update is then on for everyone who receives them.
 
 Each skill used to be a separate plugin, `nickture-interface` and `nickture-text-ru`. Now both are in one plugin, `nickture-skills`. If you installed the old plugins, update the marketplace and run `/plugin install nickture-skills@nickture` once. The old plugins are then replaced with the new one.
 
