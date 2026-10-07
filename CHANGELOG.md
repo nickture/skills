@@ -20,11 +20,11 @@ Both skills already asked for a rendered screen or a live page. This release say
 
 #### Interface
 
-- Intro: the agent checks layout on the running dev server. If none is running, it works out how to start one from the project files, runs it in the background and stops it afterwards. A report that covers the code only states the reason.
+- Intro: the agent checks layout on the running dev server. If none is running, it works out how to start one from the project files, runs it in the background and stops it afterwards. A browser is not added to the project's dependencies without asking. A report that covers the code only states the reason, such as a missing browser.
 
 #### Text
 
-- How to check: an unpublished page is read on the project's dev server. If the server is not running, the agent works out how to start it and stops it after the check. A report that checks the text without the layout states the reason (Глазами, на живой странице).
+- How to check: an unpublished page is read on the project's dev server. If the server is not running, the agent works out how to start it and stops it after the check. A browser is not added to the project's dependencies without asking. A report that checks the text without the layout states the reason (Глазами, на живой странице).
 
 ## 0.7.0 — 2026-10-07
 
