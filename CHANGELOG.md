@@ -12,6 +12,20 @@ Before 1.0.0 a renamed or removed heading and a new rule both bump the minor dig
 
 A version opens with a short summary of what it brings, then lists its changes under Breaking, Added, Changed and Fixed. Inside each part the changes are grouped by skill and then by section, so each name is written once. Breaking names every renamed or removed heading with its replacement, so you know what to change in your Foundation. A rule is named in English by its meaning, with the Russian heading in parentheses to search for.
 
+## 0.7.1 — 2026-10-07
+
+Both skills already asked for a rendered screen or a live page. This release says how the agent gets one. The rules check the same things, so the patch digit goes up. No heading was renamed or removed.
+
+### Changed
+
+#### Interface
+
+- Intro: the agent checks layout on the running dev server. If none is running, it works out how to start one from the project files, runs it in the background and stops it afterwards. A report that covers the code only states the reason.
+
+#### Text
+
+- How to check: an unpublished page is read on the project's dev server. If the server is not running, the agent works out how to start it and stops it after the check. A report that checks the text without the layout states the reason (Глазами, на живой странице).
+
 ## 0.7.0 — 2026-10-07
 
 The interface skill covers work screens in more detail, from long tables to icon buttons and the borders of blocks. Reading the skills costs fewer tokens. An edit reads only the sections it touches, and a review reads every file in two separate runs, one per skill. The search patterns of both skills now run as scripts, so an agent no longer copies them by hand. New rules bump the minor digit. No heading was renamed or removed.
