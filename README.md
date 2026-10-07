@@ -140,8 +140,8 @@ Each skill used to be a separate plugin, `nickture-interface` and `nickture-text
 
 ```text
 skills/
-  nickture-interface/   SKILL.md, rules/, sources.md
-  nickture-text-ru/     SKILL.md, rules/, sources.md
+  nickture-interface/   SKILL.md, rules/, scripts/, sources.md
+  nickture-text-ru/     SKILL.md, rules/, scripts/, sources.md
 working/
   interface/            editorial notes and drafts for the interface skill
   text/                 editorial notes and drafts for the text skill
