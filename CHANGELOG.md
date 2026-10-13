@@ -12,6 +12,146 @@ Before 1.0.0 a renamed or removed heading and a new rule both bump the minor dig
 
 A version opens with a short summary of what it brings, then lists its changes under Breaking, Added, Changed and Fixed. Inside each part the changes are grouped by skill and then by section, so each name is written once. Breaking names every renamed or removed heading with its replacement, so you know what to change in your Foundation. A rule is named in English by its meaning, with the Russian heading in parentheses to search for.
 
+## 0.8.0 — 2026-10-13
+
+Two sources went into the interface skill. One is Ilya Birman's reference on interface terms, the other is the advices of Bureau Gorbunov that the reference links to. Both were read in full and compared with every rule, and a separate pass checked each draft against the existing rules before it went in. Most new rules are about controls: how a choice is made, how a field, a menu and a switch behave, and what a state looks like. New rules and renamed headings bump the minor digit.
+
+### Breaking
+
+Four headings were renamed, because the old ones could not be understood without the rule body.
+
+#### Interface
+
+- Space: an element takes as much of the screen as it has information (Площадь экрана по объёму информации → Элемент занимает столько экрана, сколько в нём информации).
+- Icons
+  - A familiar icon keeps one action (Зарезервированные действия у своих иконок → За знакомой иконкой закреплено одно действие).
+  - An outline at rest and a fill for the selected item (Обводка в покое, заливка в активном состоянии → Обводка в покое, заливка у выбранного). The word «активное» meant available, pressed and selected at once.
+- Accessibility: hover effects only on devices with a mouse (Наведение только там, где оно есть → Эффекты наведения только на устройствах с мышью).
+
+### Added
+
+#### Interface
+
+- Sources: new key `birman-reference`, the reference on interface terms edited by Ilya Birman, Alexandra Ozkan and Nastasya Tulaeva. The `birman` key cites seven more posts, `bureau` cites the advices on controls, feedback and habits, and `classics` cites Jef Raskin's «The Humane Interface».
+- Principles
+  - Work that a machine can do is done by the machine. It counts sums, remembers input and converts units, sizes and currency (Работу, которую может сделать машина, делает машина).
+  - Controls are placed the same way as what they control (Контролы расположены так же, как то, чем они управляют).
+  - Within one task a press, a key or a gesture has one meaning, and a mode is visible where the person looks (В пределах одной задачи у нажатия одно значение).
+- Space: a rounded element does not touch the edge of its area with a rounded corner (Скруглённый элемент не касается края).
+- Forms
+  - An update from the server does not overwrite the field a person is typing in (Обновление не переписывает поле, в котором человек печатает).
+  - A placeholder and a disabled field look different, so an example is not taken for a value (Плейсхолдер не похож на неактивное поле).
+  - An input differs from the button next to it in at least two of three signs: border, fill, text alignment (Поле ввода отличается от кнопки).
+  - A multiline field shows how much text is expected and grows with it (Многострочное поле растёт вместе с текстом).
+  - In a form with a submit button a checkbox only changes a value. A setting that applies at once is a toggle (Настройка, которая действует сразу, оформлена тумблером).
+  - A checkbox fits when the unchecked state is clear. A pair of «Да» and «Нет» radio buttons becomes one checkbox (Чекбокс ставится, когда понятно, что значит выключенный).
+  - Several values of a list are chosen with checkboxes, without Ctrl or Shift (Несколько значений из списка выбираются чекбоксами).
+  - Choice cards carry a radio circle or a checkbox, so it is clear whether one or several can be chosen (По карточкам выбора видно, один вариант можно выбрать или несколько).
+  - A dropdown, a radio group and a checkbox do not open another page (Выбор значения не открывает другую страницу).
+  - A slider is grabbed at any point of its track, and its number changes while it moves (Ползунок берётся за любую точку шкалы).
+  - A calculator opens with a typical case already counted and recounts on every change (Калькулятор считает сразу).
+  - A control returns to its initial state by the same control (Контрол можно вернуть в исходное состояние).
+  - An item moves from the cart to a wish list in one press (Из корзины товар можно отложить в вишлист).
+  - Sign-in is remembered by default. The checkbox for someone else's computer appears only where people sign in from shared computers (Вход запоминается по умолчанию).
+- States
+  - States that occur together have different visual means, so focus is visible on a selected row (Каждое состояние показано своим приёмом).
+  - While a person drags an object, the area that accepts it stands out (При перетаскивании видно, куда объект можно отпустить).
+  - A single press acts at once, and a double press adds the next step to it (Двойное нажатие продолжает одиночное).
+  - A button that turns into another one by itself does not change under the cursor (Кнопка не меняет действие под курсором).
+  - Navigation, the heading and the buttons that do not depend on data are shown before the data arrives (Каркас экрана виден сразу).
+  - While a person drags, zooms or scrolls fast, the interface shows an approximate result from what it already has (Пока человек тянет или масштабирует, виден приближённый результат).
+  - A long process asks all its questions before it starts (Долгий процесс задаёт все вопросы до запуска).
+- Navigation
+  - Breadcrumbs list the levels above the current page without gaps, and the current page is not among them (Хлебные крошки показывают уровни выше текущего).
+  - The «Назад» arrow has one meaning. It leads to the parent screen and carries its name (У кнопки «Назад» одно значение).
+- Onboarding: slides about the product and a window with what is new do not cover the interface (Слайды о продукте не закрывают интерфейс).
+- Components
+  - A modal stays for a decision that blocks work. A form, settings and details open on the page (Модалка остаётся для решения, которое блокирует работу).
+  - A window does not open by itself on a timer or when the cursor leaves the page (Окно не открывается само).
+  - The tail of a popover points at the element it came from (Хвостик поповера указывает на источник).
+  - The items of an open menu do not move (Пункты открытого меню не сдвигаются).
+  - Selection and state do not reorder menu items, tabs, chips and segments (Выбор и состояние не переставляют пункты).
+  - A keyboard shortcut is written next to its command in a muted color (Сочетание клавиш написано рядом с командой).
+  - In a switch of two segments one is filled and the other matches the background (В переключателе из двух сегментов видно, какой выбран).
+  - Table rows are separated by spacing or a light line, without a grid and without stripes (Строки таблицы разделяет отступ или светлая линия).
+  - A tree shows the level by indent, and controls in a row do not shift it (Дерево показывает уровень отступом).
+  - A properties panel shows what the selected objects have in common (Панель свойств показывает общее для выделенных).
+  - An action that changes data is a button, because a person expects another page from underlined text (Команда не выглядит ссылкой).
+- Mobile: dragging starts after the pointer moves past a threshold, about 4px for a mouse and 8–10px for a finger (Перетаскивание начинается после сдвига на несколько пикселей).
+- Charts
+  - A dashboard fits into one screen (Дашборд помещается в экран).
+  - A map pin does not cover the point it marks (Метка на карте не закрывает свою точку).
+- Documents: a section of a long document has an anchor and a visible way to copy the link (На раздел длинного документа можно сослаться).
+- Accessibility: a menu row and a checkbox label are pressed as a whole (Строка меню и подпись чекбокса нажимаются целиком).
+- Performance: deferred code loads in the background before the first use (Отложенный код загружается до обращения).
+- Code search: seven patterns for the new rules, among them `<select multiple>`, `<textarea>`, a slider and breadcrumbs.
+
+#### Text
+
+Sources: new key `bureau`, the advices of Bureau Gorbunov on the wording of labels.
+
+### Changed
+
+#### Interface
+
+- Intro: the sections table names the new topics, so an edit finds its section.
+- Principles
+  - An element without a job distracts, and the person has to filter it out (У каждого элемента есть работа).
+  - The gain from the size of a target falls off (Большая и близкая цель быстрее).
+  - Settings such as a list view and panel width are kept too. The interface does not ask whether to continue from the last place (Введённое пользователем не теряется).
+  - What looks the same works the same (Согласованность по умолчанию, ясность важнее).
+- Space
+  - Radio buttons and checkboxes of one group stand in a column. A row was allowed before (Подпись ближе к своему элементу, чем к соседнему).
+  - A work screen of several groups uses the width of a wide screen (Элемент занимает столько экрана, сколько в нём информации).
+- Hierarchy: few people open a number hidden behind a press, and a person decides without it (Число для решения видно сразу).
+- Icons
+  - An abstract notion has no object to draw, so its icon can only be learned (Иконка ставится там, где помогает).
+  - A check mark means «выбрано», «готово» and «подтвердить», so it gets a label where the meaning is unclear (Где смысл критичен, символ дублируется текстом).
+  - A detail shared by all icons of a row is removed (Иконка, одинаковая у всех строк, убирается).
+- Forms
+  - An empty required field is not marked when a person leaves it. The form reports it on submit (Проверка по уходу из поля, не на каждый символ).
+  - Options that form a sequence keep their order, and «Не указано» is the default where an answer must not be suggested (Значение по умолчанию разумное и зависит от истории).
+  - A mask is the last resort. It accepts paste, deletion and undo and explains a rejected character (Ввод принимается в любом формате).
+  - A decimal keyboard, a one-time code from a message and the attributes for a password manager (Поле вызывает нужную клавиатуру и автозаполнение).
+  - Short values go into a segmented switch, and a combobox with a value opens the unfiltered list (До пяти вариантов радиокнопками, у длинного списка поиск).
+  - Search takes any word form and a synonym and suggests as the person types (Поиск принимает то, что человек знает).
+  - Going back a step keeps the data of the other steps, including a branch the person left (Пошаговый ввод с шагом назад).
+  - Steps suit a form that is filled in rarely. In a daily work tool the fields stay on one screen (Длинная форма разбита на шаги с прогрессом).
+- States
+  - An element that cannot be clicked does not react to hover, and a selected segment does not react when a press changes nothing (Каждое действие видно).
+  - A disabled element is paler as a whole and still shows its value (Неактивное выглядит неактивным и объясняет почему).
+  - A skeleton is made of large blocks without rows, icons and buttons inside (Скелетон повторяет форму содержимого).
+  - Similar items under an empty result are labeled and set apart from the results (Пустой результат предлагает выход).
+  - A progress bar that stands still shows movement while the work goes on, and the time estimate is rounded (Индикатор процесса совпадает с ходом работы).
+  - A question on every deletion teaches people to agree without reading. Deleted items go to a section they can be restored from (Undo вместо переспрашивания).
+- Navigation
+  - In a side panel navigation is on the left, properties and tools are on the right (Навигация следует конвенциям).
+  - The current menu item is brighter than its neighbors and is pressed only when the press changes something (Всегда видно, где я).
+- Components
+  - The actions of a context menu have a visible way too, and a set of checkboxes stays open in a popover (Примитив выбирается по задаче).
+  - A card that opens on hover follows the tooltip requirements (Тултип открывается и по фокусу).
+  - An open list is not narrower than its field (Выпадающее меню и поповер остаются в экране).
+  - Tabs stand on the border of the area they switch, and a choice inside a form is not made with tabs (Вкладки навигации и переключатель режима выглядят по-разному).
+  - A link in text is underlined (Ссылка наследует шрифт текста).
+  - A custom list follows the keyboard of the system one, and its arrow does not flip when it opens (Раскрытый системный список не перерисовывается).
+- Mobile: a button loses its pressed look when the finger or the cursor leaves it (Отклик жеста на касание, не на отпускание).
+- Accessibility
+  - A transition to another screen is a link with an address in the rendered page (Семантика до ARIA).
+  - An element that appears on hover keeps a reserved place (Эффекты наведения только на устройствах с мышью).
+- Scrolling
+  - The next portion is requested a screen before the end of the list (Длинная выдача подгружается сама).
+  - A map inside a long page does not zoom on the wheel, and a wheel picker opens in a sheet (Прокрутка не угоняется).
+- Motion: the interface accepts presses during a transition (Переходы прерываются).
+- Sources: rules that already said what the new sources say get the keys `birman-reference` and `bureau`.
+
+#### Text
+
+- Interface labels
+  - A link is made of words of a phrase that reads without it. A link in text, a tab and a menu item carry no verb of transition (Ссылка понятна без соседнего текста).
+  - A checkbox is labeled like a toggle. The label says what happens with the mark, without a negation, and consent to a mailing is not checked in advance (Тумблер подписан тем, что включает).
+- Consistency: the options of one radio group or checkbox group stand in one grammatical form and agree with the group label (Подписи одной роли одной формы).
+- Order and Slop: «активная ссылка» in three examples is now «ссылка».
+
 ## 0.7.3 — 2026-10-07
 
 The text for the search now covers the whole page, including the sections a browser draws only when they scroll into view. The rules check the same things, so the patch digit goes up. No heading was renamed or removed.
