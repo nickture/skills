@@ -27,14 +27,15 @@ A personal body of expertise in interface design and writing: skills with univer
 | `CHANGELOG.md` | what changed in each version and what the number means | on a release |
 | `CONTRIBUTING.md` | where to send mistakes, rules and sources; the license of contributions | on a new way to contribute |
 | `.github/ISSUE_TEMPLATE/*.yml` | issue forms: a mistake or dispute in a rule, a new rule, a new source | on a new skill, which goes into the dropdown |
-| `.github/workflows/release.yml` | when a `vX.Y.Z` tag reaches GitHub, creates a GitHub release from the version's section in `CHANGELOG.md` and puts the tag's files on the `release` branch, without `CLAUDE.md`, `AGENTS.md` and `.github/` | when the format of version headings in `CHANGELOG.md` changes, and when a new file at the root serves only the repository |
+| `.github/workflows/release.yml` | when a `vX.Y.Z` tag reaches GitHub, creates a GitHub release from the version's section in `CHANGELOG.md` and puts the tag's files on the `release` branch, without `CLAUDE.md`, `AGENTS.md`, `anchors.json` and `.github/` | when the format of version headings in `CHANGELOG.md` changes, and when a new file at the root serves only the repository |
+| `anchors.json` | the English anchor of every rule on nickture.com/skills, by skill, rules file and heading without its period: one to three words that name the rule | on a new rule, and when a heading changes: its key follows the heading, its anchor stays |
 | `.claude-plugin/plugin.json` | the `nickture-skills` plugin for Claude Code and Anthropic's plugin directory: description, keywords, version number. It finds the skills in `skills/` by itself | when the description changes and on a release |
 | `.claude-plugin/icon.png` | the plugin icon for Anthropic's directory, a square PNG of 512 to 2048 px made from the `nickture` organization avatar. The directory reads it from the repository only once, on the first save or submission. An icon that is not reviewed in time expires, and its image is deleted | when the icon changes. The directory does not read the file again, so the new file is uploaded by hand with Replace in the Icon row on the submission's Listing tab. An expired icon is uploaded the same way |
 | `.claude-plugin/marketplace.json` | the `nickture` plugin marketplace: one plugin from the root and `renames` for the old names `nickture-interface` and `nickture-text-ru` | when the plugin is renamed; old `renames` entries are never removed |
 | `LICENSE` | the CC BY 4.0 text | never |
 | `AGENTS.md` | a symlink to this file, so Codex, Cursor and other agents read the editing rules | never |
 
-The nickture.com/skills section is built by the nickture.com site from the `main` branch of this repository: `SKILL.md`, `rules/*.md` and `sources.md` of each skill. A pushed rule shows there after the site's next deploy, and nothing here changes for it. A section's address is its rules file name, and a rule's anchor is its heading, so renaming either changes a link.
+The nickture.com/skills section is built by the nickture.com site from the `main` branch of this repository: `SKILL.md`, `rules/*.md` and `sources.md` of each skill. A pushed rule shows there after the site's next deploy, and nothing here changes for it. A section's address is its rules file name, so renaming the file changes a link. A rule's anchor is its English slug in `anchors.json`: a renamed heading changes only its key there, and the link stays. A rule without an anchor stops the site's build.
 
 ## How a project uses the skills
 
@@ -92,6 +93,13 @@ for f in skills/*/SKILL.md; do n=${f#skills/}; n=${n%/SKILL.md}
   [ "$(head -1 $f)" = "---" ] || echo "$n: no frontmatter"
   grep -qx "name: $n" $f || echo "$n: name does not match the folder"
   l=$(sed -n 's/^description: //p' $f | head -1 | tr -d '\n' | wc -m); [ $l -gt 0 ] && [ $l -le 1024 ] || echo "$n: description has $l characters"
+done
+
+# every rule has an anchor in anchors.json, no anchor is left without its rule, anchors are unique within a file
+for f in skills/*/rules/*.md; do n=${f#skills/}; n=${n%%/*}; b=$(basename $f .md)
+  diff <(grep -oE '^- \*\*[^*]+\*\*' $f | sed -E 's/^- \*\*(.+)\*\*$/\1/; s/\[([^]]+)\]\([^)]+\)/\1/g; s/`//g; s/\.$//' | LC_ALL=C sort) \
+       <(jq -r --arg n $n --arg b $b '.[$n][$b] // {} | keys[]' anchors.json | LC_ALL=C sort) | grep '^[<>]' | sed "s|^|$n/$b |"
+  jq -r --arg n $n --arg b $b '.[$n][$b] // {} | [.[]] | group_by(.)[] | select(length > 1)[0]' anchors.json | sed "s|^|$n/$b twice: |"
 done
 
 # every rules/ file is in the sections of its SKILL.md
