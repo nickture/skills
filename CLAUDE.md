@@ -27,13 +27,14 @@ A personal body of expertise in interface design and writing: skills with univer
 | `CHANGELOG.md` | what changed in each version and what the number means | on a release |
 | `CONTRIBUTING.md` | where to send mistakes, rules and sources; the license of contributions | on a new way to contribute |
 | `.github/ISSUE_TEMPLATE/*.yml` | issue forms: a mistake or dispute in a rule, a new rule, a new source | on a new skill, which goes into the dropdown |
-| `.github/workflows/release.yml` | when a `vX.Y.Z` tag reaches GitHub, creates a GitHub release from the version's section in `CHANGELOG.md` and puts the tag's files on the `release` branch, without `CLAUDE.md`, `AGENTS.md`, `.github/` and `site/` | when the format of version headings in `CHANGELOG.md` changes, and when a new file at the root serves only the repository |
+| `.github/workflows/release.yml` | when a `vX.Y.Z` tag reaches GitHub, creates a GitHub release from the version's section in `CHANGELOG.md` and puts the tag's files on the `release` branch, without `CLAUDE.md`, `AGENTS.md` and `.github/` | when the format of version headings in `CHANGELOG.md` changes, and when a new file at the root serves only the repository |
 | `.claude-plugin/plugin.json` | the `nickture-skills` plugin for Claude Code and Anthropic's plugin directory: description, keywords, version number. It finds the skills in `skills/` by itself | when the description changes and on a release |
 | `.claude-plugin/icon.png` | the plugin icon for Anthropic's directory, a square PNG of 512 to 2048 px made from the `nickture` organization avatar. The directory reads it from the repository only once, on the first save or submission. An icon that is not reviewed in time expires, and its image is deleted | when the icon changes. The directory does not read the file again, so the new file is uploaded by hand with Replace in the Icon row on the submission's Listing tab. An expired icon is uploaded the same way |
 | `.claude-plugin/marketplace.json` | the `nickture` plugin marketplace: one plugin from the root and `renames` for the old names `nickture-interface` and `nickture-text-ru` | when the plugin is renamed; old `renames` entries are never removed |
 | `LICENSE` | the CC BY 4.0 text | never |
 | `AGENTS.md` | a symlink to this file, so Codex, Cursor and other agents read the editing rules | never |
-| `site/` | the nickture.com/skills section: an Astro site that reads `skills/*/rules/*.md`, `SKILL.md` and `sources.md` at build time. It is code, not rules, under MIT (`site/LICENSE`), and stays off the `release` branch | when the site changes. A new or edited rule needs nothing here: the next deploy shows it |
+
+The nickture.com/skills section is built by the nickture.com site from the `main` branch of this repository: `SKILL.md`, `rules/*.md` and `sources.md` of each skill. A pushed rule shows there after the site's next deploy, and nothing here changes for it. A section's address is its rules file name, and a rule's anchor is its heading, so renaming either changes a link.
 
 ## How a project uses the skills
 
@@ -149,7 +150,7 @@ The version number follows SemVer by meaning, not by how many rules changed. Pro
 | A new rule or section; a rule now checks something else: a threshold, a number, a scope | MINOR | MINOR |
 | Wording, an example, a source, a typo | PATCH | PATCH |
 
-- **Only the skills and the plugin get releases.** A release is needed for changes in `skills/` and `.claude-plugin/`. The README, CONTRIBUTING, `working/`, `site/`, this file and the issue forms change without a release, because the agent does not read them as rules.
+- **Only the skills and the plugin get releases.** A release is needed for changes in `skills/` and `.claude-plugin/`. The README, CONTRIBUTING, `working/`, this file and the issue forms change without a release, because the agent does not read them as rules.
 - **The plugin gets only releases.** Claude Code updates a plugin installed from the `nickture` marketplace when `version` in `plugin.json` changes. Anthropic's directory ignores `version` and tracks the `release` branch, which only the release workflow moves. The branch has no `CLAUDE.md`, `AGENTS.md` or `.github/`, because the directory's checks read every file as part of the plugin and flag an agent file at the root, a path to the icon and a token in a workflow. The skills CLI and a clone take the current `main`.
 - **1.0.0 is the author's call.** It comes out once the structure settles.
 
