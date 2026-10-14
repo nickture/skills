@@ -1,0 +1,16 @@
+{
+	"name": "nickture-skills-site",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"dev": "astro dev",
+		"build": "astro build && pagefind --site dist --output-path dist/skills/pagefind",
+		"test": "bun test --parallel"
+	},
+	"dependencies": {
+		"@tailwindcss/vite": "4.3.3",
+		"astro": "7.3.8",
+		"pagefind": "1.5.2",
+		"tailwindcss": "4.3.3"
+	}
+}

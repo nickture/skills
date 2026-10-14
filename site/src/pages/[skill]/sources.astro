@@ -1,0 +1,16 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content';
+import Layout from '$layouts/Layout.astro';
+
+export async function getStaticPaths() {
+	return (await getCollection('skills')).map((entry) => ({ params: { skill: entry.id }, props: { entry } }));
+}
+
+const { entry } = Astro.props as { entry: CollectionEntry<'skills'> };
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+---
+
+<Layout title={`Источники: ${entry.data.title.toLowerCase()}`}>
+	<p class="mb-4 text-sm"><a class="link" href={`${base}#${entry.id}`}>{entry.data.title}</a></p>
+	<article class="rules" set:html={entry.rendered?.html} />
+</Layout>

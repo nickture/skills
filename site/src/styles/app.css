@@ -1,0 +1,108 @@
+@import 'tailwindcss';
+
+/* ponytail: fonts and tokens copied from nickture-website's app.css. The fonts
+   come from nickture.com itself; a local dev server falls back to sans-serif. */
+@font-face {
+	font-family: 'Instrument Sans';
+	src: url('/fonts/InstrumentSans-Regular.ttf') format('truetype');
+	font-weight: 400;
+	font-display: swap;
+}
+@font-face {
+	font-family: 'Instrument Sans';
+	src: url('/fonts/InstrumentSans-Medium.ttf') format('truetype');
+	font-weight: 500;
+	font-display: swap;
+}
+@font-face {
+	font-family: 'Instrument Sans';
+	src: url('/fonts/InstrumentSans-SemiBold.ttf') format('truetype');
+	font-weight: 600;
+	font-display: swap;
+}
+
+@theme {
+	--color-primary: var(--color-indigo-500);
+	--color-secondary: var(--color-gray-500);
+	--color-tertiary: var(--color-gray-400);
+	--color-bg: var(--color-stone-100);
+	--color-border: var(--color-gray-200);
+
+	--text-sm: clamp(0.9rem, 1vw, 1rem);
+	--text-base: clamp(1.05rem, 1.5vw, 1.15rem);
+	--text-base--line-height: 1.5;
+	--text-lg: clamp(1.4rem, 2.25vw, 1.75rem);
+	--text-lg--letter-spacing: var(--tracking-tight);
+	--text-lg--line-height: 1.2;
+	--text-xl: clamp(2.25rem, 3vw, 3.25rem);
+	--text-xl--letter-spacing: var(--tracking-tighter);
+	--text-xl--line-height: 1.1;
+}
+
+body {
+	@apply bg-bg text-base text-gray-900;
+	font-family: 'Instrument Sans', 'Inter', sans-serif;
+}
+
+strong {
+	@apply font-semibold;
+}
+
+h1 {
+	@apply mb-8 text-xl font-medium;
+}
+
+.link,
+.rules a {
+	@apply border-border border-b text-inherit transition-colors hover:border-transparent hover:text-primary;
+}
+
+/* A rule file as rendered from Markdown: every rule is a list item with an id. */
+.rules {
+	& h2 {
+		@apply mt-16 mb-6 text-lg font-medium;
+	}
+	& > ul,
+	& > ol {
+		@apply flex flex-col gap-8;
+	}
+	& li[id] {
+		@apply -mx-4 rounded-2xl px-4 py-2;
+		scroll-margin-top: 6rem;
+	}
+	& li[id]:target {
+		@apply bg-white shadow-[0_0_40px_rgba(0,0,0,0.06)];
+	}
+	& li li {
+		@apply ml-5 list-disc;
+	}
+	& p + p,
+	& li > * + *,
+	& blockquote,
+	& pre,
+	& table {
+		@apply mt-3;
+	}
+	& blockquote {
+		@apply border-border text-secondary border-l-2 pl-4;
+	}
+	& code {
+		@apply rounded bg-white px-1 py-0.5 text-[0.85em];
+	}
+	& pre {
+		@apply overflow-x-auto rounded-xl bg-white p-4 text-sm;
+	}
+	& pre code {
+		@apply bg-transparent p-0;
+	}
+	& table {
+		@apply block overflow-x-auto text-sm;
+	}
+	& th,
+	& td {
+		@apply border-border border-b px-2 py-1.5 text-left align-top;
+	}
+	& tr:target {
+		@apply bg-white;
+	}
+}

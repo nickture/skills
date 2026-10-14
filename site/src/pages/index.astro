@@ -1,0 +1,43 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '$layouts/Layout.astro';
+
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+const skills = (await getCollection('skills')).sort((a, b) => a.data.order - b.data.order);
+const sections = (await getCollection('sections')).sort((a, b) => a.data.order - b.data.order);
+const plural = new Intl.PluralRules('ru');
+const rules = (n: number) => `${n} ${{ one: 'правило', few: 'правила', many: 'правил', other: 'правила' }[plural.select(n)]}`;
+---
+
+<Layout title="Nickture Skills">
+	<h1>Nickture Skills</h1>
+	<p class="text-secondary -mt-4 mb-16">
+		Установка: <code>npx skills add nickture/skills</code>, подробнее <a class="link" href="https://github.com/nickture/skills">на GitHub</a>
+	</p>
+	{
+		skills.map((skill) => (
+			<section id={skill.id} class="mb-20 scroll-mt-24">
+				<h2 class="mb-4 text-lg font-medium">{skill.data.title}</h2>
+				<div class="text-secondary mb-8 max-w-3xl" set:html={skill.data.intro} />
+				<ul class="grid gap-x-12 gap-y-4 sm:grid-cols-2">
+					{sections
+						.filter((s) => s.data.skill === skill.id)
+						.map((s) => (
+							<li>
+								<a class="link font-medium" href={`${base}${s.data.skill}/${s.data.file}/`}>
+									{s.data.title}
+								</a>
+								<span class="text-tertiary text-sm"> · {rules(s.data.rules)}</span>
+								<p class="text-secondary text-sm">{s.data.summary}</p>
+							</li>
+						))}
+				</ul>
+				<p class="mt-8">
+					<a class="link" href={`${base}${skill.id}/sources/`}>
+						Источники
+					</a>
+				</p>
+			</section>
+		))
+	}
+</Layout>
